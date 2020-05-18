@@ -1,0 +1,29 @@
+﻿@model IEnumerable<AboutPageEncourageViewModel>
+
+<!-- stat fun-fact-section -->
+<section class="fun-fact-section">
+    <div class="container">
+        <div class="row">
+            <div class="col col-xs-12">
+                <div class="fun-fact-area">
+                    <div class="fun-fact-grids clearfix">
+                        @foreach (var item in Model)
+                        {
+                            <div class="grid">
+                                <div class="info">
+                                    <h3><span class="odometer" data-count="@item.Count">00</span>+</h3>
+                                    <p>@item.Title</p>
+                                    <p>@item.Description</p>
+                                    <a href="#" class="theme-btn-s3">@item.ActionText</a>
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div> <!-- end container -->
+</section>
+<!-- end fun-fact-section -->

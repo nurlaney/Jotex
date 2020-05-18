@@ -1,0 +1,41 @@
+﻿@model IEnumerable<AboutCompanySectionViewModel>
+
+
+<!-- start about-section -->
+<section class="about-section section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col col-xs-12">
+                <div class="inner clearfix">
+                    <div class="left-col">
+                        @foreach (var item in Model)
+                        {
+                            <div class="section-title">
+                                <span>About us</span>
+                                <h2>@item.LeftTitle</h2>
+                            </div>
+                            <div class="details">
+                                <p>@item.LeftText</p>
+                            </div>
+                        }
+                        <vc:about-section-fun-facts></vc:about-section-fun-facts>
+                    </div>
+                    @foreach (var item in Model)
+                    {
+                        <div class="right-col">
+                            <div class="about-info">
+                                <h3>@item.Title</h3>
+                                <p>@item.Text</p>
+                                <a asp-controller="aboutus" asp-action="index" class="theme-btn">@item.ActionText</a>
+                            </div>
+                            <div class="img-holder">
+                                <img src="~/images/@item.Image">
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div> <!-- end container -->
+</section>
+<!-- end about-section -->

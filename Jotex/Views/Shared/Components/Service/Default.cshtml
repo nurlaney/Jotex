@@ -1,0 +1,28 @@
+﻿@model ServiceViewModel
+<!-- start service-section -->
+<section class="service-section section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                <div class="section-title-s2">
+                    <span>Our best services</span>
+                    <h2>Best insurance services for our client’s</h2>
+                </div>
+            </div>
+            <div class="col col-xs-12">
+                <div class="service-slider">
+                    @foreach (var item in Model.ServiceLists)
+                    {
+                        <div class="grid">
+                            <a asp-controller="service" asp-action="index" asp-route-id="@item.Id">
+                                <i class="@item.Logo"></i>
+                                <h3>@item.Name</h3>
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div> <!-- end container -->
+</section>
+<!-- end service-section -->

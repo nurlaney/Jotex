@@ -1,0 +1,16 @@
+﻿@model IEnumerable<AboutCompanyBannerViewModel>
+
+    <div class="col col-md-4">
+        <div class="features-grid clearfix">
+            @foreach (var item in Model)
+            {
+                <div class="grid">
+                    <div class="icon">
+                        <i class="@item.Icon"></i>
+                    </div>
+                    <h3>@item.Option</h3>
+                    <p>@item.Description</p>
+                </div>
+            }
+        </div>
+    </div>

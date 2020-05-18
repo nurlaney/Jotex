@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SliderItemViewModel>
+<!-- start of hero -->
+<section class="hero-slider hero-style-1">
+    <div class="bottom-links">
+        <div>
+            <a href="#">
+                <i class="fi flaticon-money-bag"></i>
+                <h4>Make a Claim</h4>
+                <p>You can claim your money</p>
+            </a>
+        </div>
+        <div>
+            <a href="#">
+                <i class="fi flaticon-agent"></i>
+                <h4>Find An Agent</h4>
+                <p>Want an agent?</p>
+            </a>
+        </div>
+    </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            @foreach (var item in Model)
+            {
+                <div class="swiper-slide">
+                    <div class="slide-inner slide-bg-image" data-background="images/slider/@item.Image">
+                        <div class="container">
+                            <div data-swiper-parallax="300" class="slide-title">
+                                <h2>@item.Title</h2>
+                            </div>
+                            <div data-swiper-parallax="400" class="slide-text">
+                                <p>@item.Slogan</p>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div data-swiper-parallax="500" class="slide-btns">
+                                <a href="#" class="theme-btn">@item.ActionText</a>
+                            </div>
+                        </div>
+                    </div> <!-- end slide-inner -->
+                </div> <!-- end swiper-slide -->
+            }
+        </div>
+        <!-- end swiper-wrapper -->
+        <!-- swipper controls -->
+        <div class="swiper-pagination"></div>
+        <div class="pagi">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+</section>
+<!-- end of hero slider -->

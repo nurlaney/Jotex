@@ -1,0 +1,68 @@
+﻿@model IEnumerable<TestimonialViewModel>
+
+
+<!-- start testimonials-section-s2 -->
+<section class="testimonials-section-s2 section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="section-title">
+                    <span>Testimonials</span>
+                </div>
+
+                <div class="testimonials-s2-nav">
+                    <div class="slider-s2-arrows">
+                        <div class="slider-prev"><i class="fi flaticon-left-arrow-angle-big-gross-symbol"></i></div>
+                        <div class="slider-next"><i class="fi flaticon-arrow-angle-pointing-to-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="testimonials-slider-holder">
+                    <div class="testimonials-slider-s2">
+                        @foreach (var item in Model)
+                        {
+                            <div class="testimonials-slider-item">
+                                <div class="grid">
+                                    <p>@item.Text</p>
+                                    <div class="quoter">
+                                        <h4>@item.WriterName</h4>
+                                        <span>@item.WriterDesc</span>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <div class="testimonials-slider-item">
+                            <div class="grid">
+                                <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer</p>
+                                <div class="quoter">
+                                    <h4>Mr. Bang</h4>
+                                    <span>Life insurance holder</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonials-slider-item">
+                            <div class="grid">
+                                <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer</p>
+                                <div class="quoter">
+                                    <h4>Mr. Bang</h4>
+                                    <span>Life insurance holder</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonials-slider-item">
+                            <div class="grid">
+                                <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer</p>
+                                <div class="quoter">
+                                    <h4>Mr. Bang</h4>
+                                    <span>Life insurance holder</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end container -->
+</section>
+<!-- end testimonials-section-s2 -->

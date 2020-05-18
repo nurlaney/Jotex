@@ -1,0 +1,10 @@
+﻿@model IEnumerable<AboutCompanyViewModel>
+    <div class="col col-md-5">
+        <div class="details-text mt">
+            @foreach (var item in Model)
+            {
+                <h4>@item.Title</h4>
+                <p>@item.Text</p>
+            }
+        </div>
+    </div>
