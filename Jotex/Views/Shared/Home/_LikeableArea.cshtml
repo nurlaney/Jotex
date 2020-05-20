@@ -1,0 +1,43 @@
+﻿@model HomeViewModel
+
+<!-- start cta-section -->
+<section class="cta-section section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col col-xs-12">
+                <div class="inner clearfix">
+                    <div class="left-col">
+                        <div class="section-title">
+                            <span>Likeable area</span>
+                            <h2>@Model.LikeableArea.Title</h2>
+                        </div>
+                        <div class="details">
+                            <p>@Model.LikeableArea.Text</p>
+                        </div>
+                    </div>
+                    <div class="right-col">
+                        <div class="contact-info">
+                            <p>Call us for details</p>
+                            <h2>++8801682530219</h2>
+                            <a href="#" class="theme-btn-s3">Contact with Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-xs-12">
+                <div class="video-area">
+                    <div class="img-holder">
+                        <img src="~/images/@Model.LikeableArea.Image">
+                        <div class="video-btns">
+                            <a href="#" class="video-btn" data-type="iframe" tabindex="0"><i class="fi flaticon-play"></i></a>
+                        </div>
+                    </div>
+                    <div class="experience-text">
+                        <p><span>15</span> Years of <br>experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end container -->
+</section>
+<!-- end cta-section -->

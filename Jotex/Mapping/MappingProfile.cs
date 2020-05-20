@@ -21,12 +21,14 @@ namespace Jotex.Mapping
             CreateMap<Brand, BrandViewModel>();
             CreateMap<Testimonial, TestimonialViewModel>();
             CreateMap<AboutCompanyFunFact, AboutSectionFunFactViewModel>();
-            CreateMap<Service, ServiceViewModel>();
-
+            CreateMap<ServiceDetail, ServiceDetailsViewModel>();
             CreateMap<ServiceSpec, ServiceSpecViewModel>();
-
-            CreateMap<ServiceDetail, ServiceDetailViewModel>();
+            CreateMap<Service, ServiceViewModel>();
             CreateMap<Service, ServiceListViewModel>();
+            CreateMap<LikeableArea, LikeAbleViewModel>();
+            CreateMap<Plan, PlanViewModel>()
+                .ForMember(p => p.PlanDetails, opt => opt.MapFrom(src => src.Details.Select(d => d.Condition)));
+            CreateMap<Label, LabelViewModel>();
         }
     }
 }

@@ -5,11 +5,10 @@ using System.Threading.Tasks;
 
 namespace Jotex.Models
 {
-    public class ServiceDetailViewModel
+    public class LikeAbleViewModel
     {
         public string Title { get; set; }
         public string Text { get; set; }
-        public string Description { get; set; }
         public string Image { get; set; }
     }
 }

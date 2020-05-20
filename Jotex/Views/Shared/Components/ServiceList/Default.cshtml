@@ -1,4 +1,5 @@
-﻿@model ServiceViewModel
+﻿@model IEnumerable<ServiceViewModel>
+
 <!-- start service-section -->
 <section class="service-section section-padding">
     <div class="container">
@@ -11,10 +12,10 @@
             </div>
             <div class="col col-xs-12">
                 <div class="service-slider">
-                    @foreach (var item in Model.ServiceLists)
+                    @foreach (var item in Model)
                     {
                         <div class="grid">
-                            <a asp-controller="service" asp-action="index" asp-route-id="@item.Id">
+                            <a href="#">
                                 <i class="@item.Logo"></i>
                                 <h3>@item.Name</h3>
                             </a>

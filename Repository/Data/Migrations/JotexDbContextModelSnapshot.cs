@@ -742,17 +742,12 @@ namespace Repository.Data.Migrations
                     b.Property<DateTime>("AddedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Condition")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
                     b.Property<string>("Icon")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<int>("LabelId")
+                    b.Property<int?>("LabelId")
                         .HasColumnType("int");
 
                     b.Property<string>("ModifiedBy")
@@ -775,6 +770,45 @@ namespace Repository.Data.Migrations
                     b.HasIndex("LabelId");
 
                     b.ToTable("Plans");
+                });
+
+            modelBuilder.Entity("Repository.Models.PlanDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AddedBy")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<DateTime>("AddedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Condition")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(300)")
+                        .HasMaxLength(300);
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PlanId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlanId");
+
+                    b.ToTable("PlanDetails");
                 });
 
             modelBuilder.Entity("Repository.Models.Service", b =>
@@ -1141,7 +1175,14 @@ namespace Repository.Data.Migrations
                 {
                     b.HasOne("Repository.Models.Label", "Label")
                         .WithMany("Plans")
-                        .HasForeignKey("LabelId")
+                        .HasForeignKey("LabelId");
+                });
+
+            modelBuilder.Entity("Repository.Models.PlanDetail", b =>
+                {
+                    b.HasOne("Repository.Models.Plan", "Plan")
+                        .WithMany("Details")
+                        .HasForeignKey("PlanId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

@@ -14,13 +14,11 @@ namespace Repository.Models
         [MaxLength(100)]
         public string Icon { get; set; }
         [Required]
-        [MaxLength(100)]
-        public string Condition { get; set; }
-        [Required]
         [MaxLength(60)]
         public string ActionText { get; set; }
-        public int LabelId { get; set; }
+        public int? LabelId { get; set; }
 
         public Label Label { get; set; }
+        public ICollection<PlanDetail> Details { get; set; }
     }
 }

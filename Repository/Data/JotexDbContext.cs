@@ -25,6 +25,7 @@ namespace Repository.Data
         public DbSet<LikeableArea> LikeableAreas { get; set; }
         public DbSet<NewTo> NewTos { get; set; }
         public DbSet<Plan> Plans { get; set; }
+        public DbSet<PlanDetail> PlanDetails { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<ServiceBanner> ServiceBanners { get; set; }
         public DbSet<ServiceDetail> ServiceDetails { get; set; }

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<PlanViewModel> 
+<!-- start pricing-section -->
+<section class="policy-section section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                <div class="section-title-s2">
+                    <span>Our best plans</span>
+                    <h2>Insurance plan for every goal in life</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12">
+                <div class="policy-grids">
+                    @foreach (var item in Model)
+                    {
+                    <div class="grid">
+                        @if (item.Label != null)
+                        {
+                            <div class="hilight-tag">@item.Label.Text</div>
+                        }
+
+                        <div class="policy-header">
+                            <h5>@item.Title</h5>
+                            <i class="@item.Icon"></i>
+                        </div>
+                        <div class="policy-body">
+                            <ul>
+                                @foreach (var elem in item.PlanDetails)
+                                {
+                                    <li>@elem</li>
+                                }
+                            </ul>
+                            <a href="#" class="theme-btn-s3">@item.ActionText</a>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div> <!-- end container -->
+</section>
+<!-- end policy-section -->

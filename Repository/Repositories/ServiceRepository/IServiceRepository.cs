@@ -7,7 +7,9 @@ namespace Repository.Repositories.ServiceRepository
 {
    public interface IServiceRepository
     {
-        public Service GetServiceWithDetails(int id);
-      public IEnumerable<Service> GetServices();
+        public IEnumerable<Service> GetServices();
+        public Service GetServiceById(int id);
+        public IEnumerable<ServiceDetail> GetServiceDetails();
+        public IEnumerable<ServiceSpec> GetServiceSpecs();
     }
 }

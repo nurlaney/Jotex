@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Repository.Data;
 using Repository.Repositories.AboutCompanyRepository;
+using Repository.Repositories.PlansRepositories;
 using Repository.Repositories.SectionRepositories;
 using Repository.Repositories.ServiceRepository;
 
@@ -40,6 +41,7 @@ namespace Jotex
             services.AddTransient<ISectionRepository, SectionRepository>();
             services.AddTransient<IAboutCompanyRepository, AboutCompanyRepository>();
             services.AddTransient<IServiceRepository, ServiceRepository>();
+            services.AddTransient<IPlanRepository, PlanRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

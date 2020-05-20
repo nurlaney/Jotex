@@ -151,6 +151,7 @@ C:\Users\DostTech\source\repos\Jotex\Jotex\obj\Debug\netcoreapp3.1\Razor\Views\S
 C:\Users\DostTech\source\repos\Jotex\Jotex\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Testimonial\Default.cshtml.g.cs
 C:\Users\DostTech\source\repos\Jotex\Jotex\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\AboutHomeSection\Default.cshtml.g.cs
 C:\Users\DostTech\source\repos\Jotex\Jotex\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\AboutSectionFunFacts\Default.cshtml.g.cs
-C:\Users\DostTech\source\repos\Jotex\Jotex\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Service\Default.cshtml.g.cs
+C:\Users\DostTech\source\repos\Jotex\Jotex\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\ServiceList\Default.cshtml.g.cs
 C:\Users\DostTech\source\repos\Jotex\Jotex\obj\Debug\netcoreapp3.1\Razor\Views\Service\Index.cshtml.g.cs
-C:\Users\DostTech\source\repos\Jotex\Jotex\obj\Debug\netcoreapp3.1\Razor\Views\Service\SingleService.cshtml.g.cs
+C:\Users\DostTech\source\repos\Jotex\Jotex\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Home\_LikeableArea.cshtml.g.cs
+C:\Users\DostTech\source\repos\Jotex\Jotex\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Plan\Default.cshtml.g.cs

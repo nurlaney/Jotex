@@ -1,117 +1,14 @@
-﻿@{
+﻿@model HomeViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <vc:slider></vc:slider>
 <vc:about-home-section></vc:about-home-section>
-<vc:service></vc:service>
-<!-- start cta-section -->
-<section class="cta-section section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col col-xs-12">
-                <div class="inner clearfix">
-                    <div class="left-col">
-                        <div class="section-title">
-                            <span>Likeable area</span>
-                            <h2>Best Life Insurance Company in the World!</h2>
-                        </div>
-                        <div class="details">
-                            <p>With a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out</p>
-                        </div>
-                    </div>
-                    <div class="right-col">
-                        <div class="contact-info">
-                            <p>Call us for details</p>
-                            <h2>++8801682530219</h2>
-                            <a href="#" class="theme-btn-s3">Contact with Us</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col col-xs-12">
-                <div class="video-area">
-                    <div class="img-holder">
-                        <img src="~/images/cta.jpg">
-                        <div class="video-btns">
-                            <a href="https://www.youtube.com/embed/7e90gBu4pas?autoplay=1" class="video-btn" data-type="iframe" tabindex="0"><i class="fi flaticon-play"></i></a>
-                        </div>
-                    </div>
-                    <div class="experience-text">
-                        <p><span>15</span> Years of <br>experience</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- end container -->
-</section>
-<!-- end cta-section -->
-<!-- start pricing-section -->
-<section class="policy-section section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
-                <div class="section-title-s2">
-                    <span>Our best plans</span>
-                    <h2>Insurance plan for every goal in life</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col col-xs-12">
-                <div class="policy-grids">
-                    <div class="grid">
-                        <div class="policy-header">
-                            <h5>Family Protection</h5>
-                            <i class="fi flaticon-umbrella"></i>
-                        </div>
-                        <div class="policy-body">
-                            <ul>
-                                <li>Fxed for entire policy term</li>
-                                <li>De Will be transferred </li>
-                                <li>Documents for verification</li>
-                                <li>Entire policy term</li>
-                            </ul>
-                            <a href="#" class="theme-btn-s3">Select The Plan</a>
-                        </div>
-                    </div>
-                    <div class="grid">
-                        <div class="hilight-tag">Most Popular</div>
-                        <div class="policy-header">
-                            <h5>Health Protection</h5>
-                            <i class="fi flaticon-umbrella-1"></i>
-                        </div>
-                        <div class="policy-body">
-                            <ul>
-                                <li>Fxed for entire policy term</li>
-                                <li>De Will be transferred </li>
-                                <li>Documents for verification</li>
-                                <li>Entire policy term</li>
-                            </ul>
-                            <a href="#" class="theme-btn-s3">Select The Plan</a>
-                        </div>
-                    </div>
-                    <div class="grid">
-                        <div class="policy-header">
-                            <h5>Check Suitability</h5>
-                            <i class="fi flaticon-insurance"></i>
-                        </div>
-                        <div class="policy-body">
-                            <ul>
-                                <li>Fxed for entire policy term</li>
-                                <li>De Will be transferred </li>
-                                <li>Documents for verification</li>
-                                <li>Entire policy term</li>
-                            </ul>
-                            <a href="#" class="theme-btn-s3">Select The Plan</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- end container -->
-</section>
-<!-- end policy-section -->
+<vc:service-list></vc:service-list>
+<partial name="Home/_LikeableArea" model="Model" />
+
+<vc:plan></vc:plan>
 <!-- start cta-s2-section -->
 <section class="cta-s2-section">
     <div class="container">
@@ -144,47 +41,7 @@
     </div>
 </section>
 <!-- end cta-s2-section -->
-<!-- start testimonials-section -->
-<section class="testimonials-section section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
-                <div class="section-title-s2">
-                    <span>Testimonials</span>
-                    <h2>What People Says About Us</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col col-xs-12">
-                <div class="testimonials-slider">
-                    <div class="grid">
-                        <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer</p>
-                        <div class="quoter">
-                            <h4>Mr. Bang</h4>
-                            <span>Life insurance holder</span>
-                        </div>
-                    </div>
-                    <div class="grid">
-                        <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer</p>
-                        <div class="quoter">
-                            <h4>Mr. Bang</h4>
-                            <span>Life insurance holder</span>
-                        </div>
-                    </div>
-                    <div class="grid">
-                        <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer</p>
-                        <div class="quoter">
-                            <h4>Mr. Bang</h4>
-                            <span>Life insurance holder</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- end container -->
-</section>
-<!-- end testimonials-section -->
+<vc:testimonial></vc:testimonial>
 <!-- start blog-section -->
 <section class="blog-section section-padding">
     <div class="container">

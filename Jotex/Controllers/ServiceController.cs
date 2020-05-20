@@ -12,26 +12,38 @@ namespace Jotex.Controllers
 {
     public class ServiceController : Controller
     {
-        private readonly IMapper _mapper;
         private readonly IServiceRepository _serviceRepository;
+        private readonly IMapper _mapper;
 
-        public ServiceController(IMapper mapper,
-                                 IServiceRepository serviceRepository)
+        public ServiceController(IServiceRepository serviceRepository,
+                                 IMapper mapper)
         {
-            _mapper = mapper;
             _serviceRepository = serviceRepository;
+            _mapper = mapper;
         }
-        public IActionResult Index()
+        public IActionResult Index(int? id)
         {
-            return  View();
-        }
+            var services = _serviceRepository.GetServices();
+           
+            var model = new ServiceListViewModel
+            {
+                Services = _mapper.Map<IEnumerable<Service>, IEnumerable<ServiceViewModel>>(services),
+            };
 
-        public IActionResult SingleService(int id)
-        {
-            var singleService = _serviceRepository.GetServiceWithDetails(id);
-            if (singleService == null) return NotFound();
-            var model = _mapper.Map<Service, ServiceViewModel>(singleService);
-            return View(model);
+            if (id == null)
+            {
+                model.ActiveService = _mapper.Map<Service, ServiceViewModel>(services.First());
+            }
+            else
+            {
+                var active = _serviceRepository.GetServiceById((int)id);
+
+                if (active == null) return NotFound(); 
+
+                model.ActiveService = _mapper.Map<Service, ServiceViewModel>(active);
+            }
+
+            return View(model); 
         }
     }
 }
