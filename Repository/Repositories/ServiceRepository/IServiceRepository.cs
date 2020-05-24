@@ -9,7 +9,5 @@ namespace Repository.Repositories.ServiceRepository
     {
         public IEnumerable<Service> GetServices();
         public Service GetServiceById(int id);
-        public IEnumerable<ServiceDetail> GetServiceDetails();
-        public IEnumerable<ServiceSpec> GetServiceSpecs();
     }
 }

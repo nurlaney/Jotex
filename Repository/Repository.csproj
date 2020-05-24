@@ -9,6 +9,10 @@
     <Compile Remove="Data\Migrations\20200515214007_InitialCreate.Designer.cs" />
     <Compile Remove="Data\Migrations\20200519205325_Repairs1.cs" />
     <Compile Remove="Data\Migrations\20200519205325_Repairs1.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200520225639_RepairV3.cs" />
+    <Compile Remove="Data\Migrations\20200520225639_RepairV3.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200523142116_Pust2.cs" />
+    <Compile Remove="Data\Migrations\20200523142116_Pust2.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,90 @@
+﻿@model CaseStudyViewModel
+@{
+    ViewData["Title"] = "Case Study";
+
+    var relatedCases = ViewBag.relatedCases as IEnumerable<CaseStudyViewModel>;
+}
+
+<partial name="Extract/_PageBanner" />
+
+<!-- start project-single-section -->
+<section class="project-single-section section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-6">
+                <div class="img-holder">
+                    <img src="~/images/project-single/@Model.Service.Image">
+                </div>
+            </div>
+            <div class="col col-md-6">
+                <div class="project-details">
+                    <h2>@Model.Title</h2>
+                    <h3>@Model.Description</h3>
+                    <p>@Model.Text</p>
+                    <div class="project-info">
+                        <ul class="clearfix">
+                            @foreach (var item in Model.CaseStudySpecs)
+                            {
+                                <li><span>@item.Key:</span>@item.Value</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12">
+                <div class="project-single-tab clearfix">
+                    <ul class="nav">
+                        <li class="active">
+                            <a href="#precautions" data-toggle="tab">Məsələ</a>
+                        </li>
+                        <li>
+                            <a href="#intelligence" data-toggle="tab">Həlli</a>
+                        </li>
+                        <li>
+                            <a href="#specializations" data-toggle="tab">Nəticə</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="precautions">
+                            <p>@Model.Challenge</p>
+                        </div>
+                        <div class="tab-pane fade" id="intelligence">
+                            <p>@Model.Solution</p>
+                        </div>
+                        <div class="tab-pane fade" id="specializations">
+                            <p>@Model.Results</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12">
+                <div class="related-case-studies">
+                    <h2>Related Case Studies</h2>
+                    <div class="case-studies-grids">
+                        @foreach (var item in relatedCases.Where(c => c.Id != Model.Id))
+                        {
+                        <div class="grid">
+                            <div class="img-holder">
+                                <img src="~/images/case-studies/@Model.Agent.Image">
+                            </div>
+                            <div class="overlay">
+                                <div class="content">
+                                    <p class="cat">@Model.Agent.Name</p>
+                                    <p class="cat">@Model.Name</p>
+                                    <h3><a href="#">@Model.Service.Name</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end container -->
+</section>
+<!-- end project-single-section -->

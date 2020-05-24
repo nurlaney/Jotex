@@ -7,7 +7,8 @@ namespace Jotex.Models
 {
     public class ServiceListViewModel
     {
-        public IEnumerable<ServiceViewModel> Services { get; set; }
+        public ServiceViewModel Service { get; set; }
         public ServiceViewModel ActiveService { get; set; }
+        public IEnumerable<ServiceViewModel> Services { get; set; }
     }
 }

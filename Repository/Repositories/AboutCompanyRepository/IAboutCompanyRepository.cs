@@ -8,9 +8,6 @@ namespace Repository.Repositories.AboutCompanyRepository
    public interface IAboutCompanyRepository
     {
         IEnumerable<AboutCompany> GetAboutCompany();
-        IEnumerable<AboutCompanyBanner> GetAboutCompanyBanners();
-        IEnumerable<AboutCompanyEncourage> GetAboutCompanyEncourages();
-        IEnumerable<AboutCompanyFunFact> GetAboutCompanyFunFacts();
         IEnumerable<Agent> GetAgents();
     }
 }

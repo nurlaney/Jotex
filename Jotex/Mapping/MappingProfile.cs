@@ -13,22 +13,45 @@ namespace Jotex.Mapping
         public MappingProfile()
         {
             CreateMap<SliderItem, SliderItemViewModel>();
+
             CreateMap<AboutCompany, AboutCompanyViewModel>();
-            CreateMap<AboutCompany, AboutCompanySectionViewModel>();
-            CreateMap<AboutCompanyBanner, AboutCompanyBannerViewModel>();
-            CreateMap<AboutCompanyEncourage, AboutPageEncourageViewModel>();
+            CreateMap<AboutCompanyEncourage, AboutEncourageViewModel>();
+            CreateMap<AboutCompanyFunFact, AboutFunFactViewModel>();
+
+            //home page
             CreateMap<Agent, AgentViewModel>();
             CreateMap<Brand, BrandViewModel>();
             CreateMap<Testimonial, TestimonialViewModel>();
-            CreateMap<AboutCompanyFunFact, AboutSectionFunFactViewModel>();
-            CreateMap<ServiceDetail, ServiceDetailsViewModel>();
+            CreateMap<LikeableArea, LikeAbleViewModel>();
+            CreateMap<NewTo, NewToViewModel>();
+            CreateMap<Setting, SettingViewModel>();
+
+            //pages
             CreateMap<ServiceSpec, ServiceSpecViewModel>();
             CreateMap<Service, ServiceViewModel>();
             CreateMap<Service, ServiceListViewModel>();
-            CreateMap<LikeableArea, LikeAbleViewModel>();
+
+            CreateMap<Faq, FaqViewModel>();
+
+            CreateMap<CaseStudy, CaseStudyViewModel>();
+            CreateMap<CaseStudySpec, CaseStudySpecViewModel>();
+            
+            CreateMap<Contact, ContactViewModel>();
+
+
             CreateMap<Plan, PlanViewModel>()
                 .ForMember(p => p.PlanDetails, opt => opt.MapFrom(src => src.Details.Select(d => d.Condition)));
+
             CreateMap<Label, LabelViewModel>();
+            CreateMap<CoveredContact, ContactSectionViewModel>();
+            
+            
+            CreateMap<Blog, BlogViewModel>();
+            CreateMap<BlogWriter, BlogWriterViewModel>();
+            CreateMap<Tag, TagViewModel>();
+
+            CreateMap<Comment, CommentViewModel>();
+            CreateMap<CommentViewModel, Comment>();
         }
     }
 }

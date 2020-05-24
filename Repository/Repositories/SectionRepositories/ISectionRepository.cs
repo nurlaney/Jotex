@@ -7,8 +7,14 @@ namespace Repository.Repositories.SectionRepositories
 {
    public interface ISectionRepository
     {
-        IEnumerable<SliderItem> GetSliderItems();
-        IEnumerable<Brand> GetBrands();
-        IEnumerable<Testimonial> GetTestimonials();
+       public IEnumerable<SliderItem> GetSliderItems();
+       public IEnumerable<Brand> GetBrands();
+       public IEnumerable<Testimonial> GetTestimonials();
+       public IEnumerable<NewTo> GetNewTo();
+       public IEnumerable<CoveredContact> GetSectionItems();
+       public IEnumerable<Faq> GetFaqs();
+       public Faq GetFaqById(int? id);
+        public IEnumerable<Contact> GetContacts();
+
     }
 }

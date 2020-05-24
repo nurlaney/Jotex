@@ -15,6 +15,9 @@ namespace Repository.Models
         public string Numbs { get; set; }
         [Required]
         [MaxLength(65)]
-        public string Description { get; set; }
+        public string FFDescription { get; set; }
+        public int AboutCompanyId { get; set; }
+
+        public AboutCompany AboutCompany { get; set; }
     }
 }

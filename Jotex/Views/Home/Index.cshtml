@@ -4,43 +4,12 @@
 }
 
 <vc:slider></vc:slider>
-<vc:about-home-section></vc:about-home-section>
+<vc:about-section></vc:about-section>
 <vc:service-list></vc:service-list>
 <partial name="Home/_LikeableArea" model="Model" />
 
 <vc:plan></vc:plan>
-<!-- start cta-s2-section -->
-<section class="cta-s2-section">
-    <div class="container">
-        <div class="row">
-            <div class="col col-xs-12">
-                <div class="content-area clearfix">
-                    <div class="left-col">
-                        <div class="details">
-                            <h2>New to Insurance? No Problem.</h2>
-                            <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower</p>
-                            <ul>
-                                <li><a href="#">Insurance</a></li>
-                                <li><a href="#">Understanding Homeowners Insurance</a></li>
-                                <li><a href="#">Understanding Car Insurance</a></li>
-                                <li><a href="#">Resources Overview</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="right-col">
-                        <div class="text">
-                            <p>Hi, I am agent venod <span>++685785475</span></p>
-                        </div>
-                        <div class="img-holder">
-                            <img src="~/images/agent-v.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- end cta-s2-section -->
+<partial name="Home/_NewTo" model="Model" />
 <vc:testimonial></vc:testimonial>
 <!-- start blog-section -->
 <section class="blog-section section-padding">
@@ -84,20 +53,5 @@
     </div> <!-- end container -->
 </section>
 <!-- end blog-section -->
-<!-- start cta-s3-section -->
-<section class="cta-s3-section section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col col-xs-12">
-                <div class="inner clearfix">
-                    <div class="cta-content">
-                        <h2>Are you covered?</h2>
-                        <p>A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated </p>
-                        <a href="#" class="theme-btn-s4">Contact us</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- end container -->
-</section>
-<!-- end cta-s3-section -->
+<partial name="Home/_ContactSection" model="Model" />
+

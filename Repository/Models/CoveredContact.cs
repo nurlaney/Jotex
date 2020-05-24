@@ -6,7 +6,7 @@ using System.Text;
 namespace Repository.Models
 {
    public class CoveredContact : BaseEntity
-    {
+    { 
         [Required]
         [MaxLength(100)]
         public string Title { get; set; }

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CaseStudyViewModel>
+@{
+    ViewData["Title"] = "Case Studies";
+}
+
+<partial name="Extract/_PageBanner" />
+
+<!-- start case-studies-section -->
+<section class="case-studies-section case-studies-pg-section section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                <div class="section-title-s4">
+                    <span>Here Our Best Work</span>
+                    <h2>Recent Case Studies</h2>
+                    <p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nuncIt showed a lady fitted out</p>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end container -->
+    <div class="content-area">
+        <div class="case-studies-grids case-studies-slider">
+            @foreach (var item in Model)
+            {
+                <div class="grid">
+                    <div class="img-holder">
+                        <img src="~/images/case-studies/@item.Agent.Image">
+                    </div>
+                    <div class="overlay">
+                        <div class="content">
+                            <p class="cat">@item.Agent.Name</p>
+                            <p class="cat">@item.Name</p>
+                            <h3><a asp-action="single" asp-route-id="@item.Id">@item.Service.Name</a></h3>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- end case-studies-section -->

@@ -1,27 +1,9 @@
 ﻿@model ServiceListViewModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Service";
 }
 
-<!-- start page-title --> 
-<section class="page-title">
-    <div class="page-title-container">
-        <div class="page-title-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col col-xs-12">
-                        <h2>Service single</h2>
-                        <ol class="breadcrumb">
-                            <li><a href="index.html">Home</a></li>
-                            <li>Service single</li>
-                        </ol>
-                    </div>
-                </div> <!-- end row -->
-            </div> <!-- end container -->
-        </div>
-    </div>
-</section>
-<!-- end page-title -->
+    <partial name="Extract/_PageBanner" />
 <!-- start service-single-section -->
 <section class="service-single-section section-padding">
     <div class="container">
@@ -46,9 +28,9 @@
                             <div class="tab-pane @(item.Id==Model.ActiveService.Id?"fade active in":"")" id="@item.Id">
                                 <div class="content-area clearfix">
                                     <div class="grid info-grid">
-                                        <h3>@item.ServiceDetails.First().Title</h3>
-                                        <p>@item.ServiceDetails.First().Text</p>
-                                        <p><strong>@item.ServiceDetails.First().Description</strong></p>
+                                        <h3>@item.Title</h3> 
+                                        <p>@item.Text</p>
+                                        <p><strong>@item.Description</strong></p>
                                         <table>
                                             <tbody>
                                                 @foreach (var specs in item.ServiceSpecs)
@@ -62,13 +44,13 @@
                                         </table>
                                     </div>
                                     <div class="grid">
-                                        <img src="~/images/service-single/@item.ServiceDetails.First().Image">
+                                        <img src="~/images/service-single/@item.Image">
                                     </div>
                                 </div>
                                 <div class="bottom-info">
                                     <div class="text">
-                                        <h4>Samsa was a travelling salesman and above it there hung a picture that he had recently cut out of an illustrated magazine</h4>
-                                        <p>Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather</p>
+                                        <h4>@item.BottomDesc</h4>
+                                        <p>@item.BottomText</p>
                                     </div>
                                     <div class="pdf-dwn-area">
                                         <a href="#">

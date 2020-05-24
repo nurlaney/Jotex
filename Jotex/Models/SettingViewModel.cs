@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Jotex.Models
+{
+    public class SettingViewModel
+    {
+        public string Logo { get; set; }
+        public string NeedHelpNumber { get; set; }
+        public string Address { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string WorkTime { get; set; }
+        public int ContactId { get; set; }
+        public string Location { get; set; }
+    }
+}

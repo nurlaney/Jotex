@@ -10,6 +10,7 @@ using Repository.Data;
 using AutoMapper;
 using Repository.Models;
 using Repository.Repositories.PlansRepositories;
+using Repository.Repositories.SectionRepositories;
 
 namespace Jotex.Controllers
 {
@@ -17,33 +18,31 @@ namespace Jotex.Controllers
     {
         private readonly JotexDbContext _context;
         private readonly IMapper _mapper;
-        private readonly IPlanRepository _planRepository;
+        private readonly ISectionRepository _sectionRepository;
+        
 
         public HomeController(JotexDbContext context,
                               IMapper mapper,
-                              IPlanRepository planRepository)
+                              ISectionRepository sectionRepository)
         {
             _mapper = mapper;
             _context = context;
-            _planRepository = planRepository;
+            _sectionRepository = sectionRepository;
         }
 
         public IActionResult Index()
         {
+            var contactSectionItems = _sectionRepository.GetSectionItems();
             var areaItems = _context.LikeableAreas.Where(a => a.Status).ToList();
+            var newToItems = _sectionRepository.GetNewTo();
             var model = new HomeViewModel
             {
-                LikeableArea = _mapper.Map<LikeableArea, LikeAbleViewModel>(areaItems.First())
+                LikeableArea = _mapper.Map<LikeableArea, LikeAbleViewModel>(areaItems.First()),
+                NewTo = _mapper.Map<NewTo, NewToViewModel>(newToItems.First()),
+                ContactSection = _mapper.Map<CoveredContact,ContactSectionViewModel>(contactSectionItems.First())
+                
             };
             return View(model);
-        }
-        
-        public IActionResult Test()
-        {
-            var plans = _planRepository.GetPlans();
-            var model = _mapper.Map<IEnumerable<Plan>,IEnumerable< PlanViewModel >> (plans);
-
-            return Ok(model);
         }
     }
 }

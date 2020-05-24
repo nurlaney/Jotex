@@ -1,4 +1,5 @@
-﻿using Repository.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Repository.Data;
 using Repository.Models;
 using System;
 using System.Collections.Generic;
@@ -17,24 +18,10 @@ namespace Repository.Repositories.AboutCompanyRepository
         //about sehifesi post
         public IEnumerable<AboutCompany> GetAboutCompany()
         {
-            return _context.AboutCompanies.Where(a => a.Status).ToList();
-        }
-
-        //about sehifesi banneri
-        public IEnumerable<AboutCompanyBanner> GetAboutCompanyBanners()
-        {
-            return _context.AboutCompanyBanners.Where(b => b.Status).ToList();
-        }
-
-        public IEnumerable<AboutCompanyEncourage> GetAboutCompanyEncourages()
-        {
-            return _context.AboutCompanyEncourages.Where(e => e.Status).ToList();
-        }
-
-        //ana sehife fun fact hissesi
-        public IEnumerable<AboutCompanyFunFact> GetAboutCompanyFunFacts()
-        {
-            return _context.AboutCompanyFunFacts.Where(f => f.Status).ToList();
+            return _context.AboutCompanies
+                                          .Include(a=>a.FunFacts)
+                                          .Include(a=>a.Encourages)
+                                          .Where(a => a.Status).ToList();
         }
 
         // about sehifesi agentler siyahisi

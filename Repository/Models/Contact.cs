@@ -22,5 +22,7 @@ namespace Repository.Models
         [Required]
         [MaxLength(100)]
         public string FormActionText { get; set; }
+
+        public ICollection<Setting> Settings { get; set; }
     }
 }

@@ -25,5 +25,9 @@ namespace Repository.Models
         [Required]
         [MaxLength(55)]
         public string Image { get; set; }
+
+
+        public ICollection<AboutCompanyEncourage> Encourages { get; set; }
+        public ICollection<AboutCompanyFunFact> FunFacts { get; set; }
     }
 }

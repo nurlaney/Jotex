@@ -13,8 +13,27 @@ namespace Repository.Models
         [Required]
         [MaxLength(100)]
         public string Logo { get; set; }
+        [Required]
+        [MaxLength(100)]
+        public string Title { get; set; }
+        [Required]
+        [MaxLength(550)]
+        public string Text { get; set; }
+        [Required]
+        [MaxLength(300)]
+        public string Description { get; set; }
+        [Required]
+        [MaxLength(300)]
+        public string BottomDesc { get; set; }
+        [Required]
+        [MaxLength(550)]
+        public string BottomText { get; set; }
+        [Required]
+        [MaxLength(100)]
+        public string Image { get; set; }
 
+        public ICollection<CaseStudy> CaseStudies { get; set; }
         public ICollection<ServiceSpec> ServiceSpecs { get; set; }
-        public ICollection<ServiceDetail> ServiceDetails { get; set; }
+        public ICollection<Blog> Blogs { get; set; }
     }
 }

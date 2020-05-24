@@ -1,0 +1,177 @@
+﻿@model BlogViewModel
+@{
+    ViewData["Title"] = "Blog Post";
+}
+
+<partial name="Extract/_PageBanner" />
+
+<!-- start blog-single-section -->
+<section class="blog-single-section section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-8">
+                <div class="blog-content">
+                    <div class="post format-standard-image">
+                        <div class="entry-media">
+                            <img src="~/images/blog/@Model.Blog.Image">
+                        </div>
+                        <ul class="entry-meta">
+                            <li><a href="#"><i class="fi flaticon-user"></i> By: Admin</a></li>
+                            <li><a href="#"><i class="fi flaticon-tag-1"></i>@Model.Blog.Tag.Name</a></li>
+                            <li><a href="#"><i class="fi flaticon-calendar"></i>@Model.Blog.AddedDate.ToString("MM/dd/yyyy")</a></li>
+                        </ul>
+                        <h2>@Model.Blog.Title</h2>
+                        <p>@Model.Blog.Text</p>
+                    </div>
+
+                    <div class="tag-share clearfix">
+                        <div class="tag">
+                            <span>Tags: </span>
+                            <ul>
+                                <li><a href="#">@Model.Blog.Tag.Name</a></li>
+                            </ul>
+                        </div>
+                    </div> <!-- end tag-share -->
+
+                    <div class="author-box">
+                        <div class="author-avatar">
+                            <a href="#" target="_blank"><img src="~/images/blog-details/@Model.Blog.BlogWriter.Image"></a>
+                        </div>
+                        <div class="author-content">
+                            <a href="#" class="author-name">@Model.Blog.BlogWriter.Name</a>
+                            <p>@Model.Blog.BlogWriter.Description</p>
+                           
+                        </div>
+                    </div> <!-- end author-box -->
+
+                    <div class="more-posts">
+                        <div class="previous-post">
+                            <a href="#">
+                                <span class="post-control-link">Previous Post</span>
+                                <span class="post-name">Covered Mechin  the whole of her lower arm towards the armes</span>
+                            </a>
+                        </div>
+                        <div class="next-post">
+                            <a href="0.html">
+                                <span class="post-control-link">Next Post</span>
+                                <span class="post-name"> Tomar name was then turned to lwindow at the dull weather.</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="comments-area">
+                        <div class="comments-section">
+                            <h3 class="comments-title">5 Comments</h3>
+                            <ol class="comments">
+                                @foreach (var item in Model.Comments)
+                                {
+                                    <li class="comment">
+                                        <div>
+                                            <div class="comment-main-area">
+                                                <div class="comment-wrapper">
+                                                    <div class="comments-meta">
+                                                        <h4>@item.UserName<span class="comments-date">@item.AddedDate.ToString("MM/dd/yyyy")</span></h4>
+                                                    </div>
+                                                    <div class="comment-area">
+                                                        <p>@item.Text</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+                            </ol>
+                        </div> <!-- end comments-section -->
+
+                        <div class="comment-respond">
+                            <h3 class="comment-reply-title">Add your comment</h3>
+                            <form method="post" asp-action="comment" id="commentform" class="comment-form">
+                                <div class="form-textarea">
+                                    <textarea asp-for="Comment.Text" placeholder="Write Your Comments..."></textarea>
+                                </div>
+                                <div class="form-inputs">
+                                    <input placeholder="Website" type="url">
+                                    <input asp-for="Comment.UserName" placeholder="Name" type="text">
+                                    <input asp-for="Comment.UserEmail" type="email">
+                                </div>
+                                <div class="form-submit">
+                                    <input id="submit" value="Post Comment" type="submit">
+                                </div>
+                            </form>
+                        </div>
+                    </div> <!-- end comments-area -->
+                </div>
+            </div>
+            <div class="col col-md-4">
+                <div class="blog-sidebar">
+                    <div class="widget about-widget">
+                        <h3>Yazıçı</h3>
+                        <div class="img-holder">
+                            <img src="~/images/blog/@Model.Blog.BlogWriter.Image">
+                        </div>
+                        <p>@Model.Blog.BlogWriter.Description</p>
+                    </div>
+                    <div class="widget search-widget">
+                        <h3>Search</h3>
+                        <form>
+                            <div>
+                                <input type="text" class="form-control" placeholder="Search Post..">
+                                <button type="submit"><i class="ti-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="widget category-widget">
+                        <h3>Categories</h3>
+                        <ul>
+                            @foreach (var item in Model.Services)
+                            {
+                                <li>
+                                    <a href="#">
+                                            @item.Name
+                                        
+                                        <span>
+                                            (@Model.Count)
+                                        </span>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="widget recent-post-widget">
+                        <h3>Recent post</h3>
+                        <div class="posts">
+                            @foreach (var item in Model.Blogs)
+                            {
+                                <div class="post">
+                                    <div class="img-holder">
+                                        <img src="~/images/recent-posts/@item.Image">
+                                    </div>
+                                    <div class="details">
+                                        <h4><a href="#">@item.Title.Substring(0,70) ...</a></h4>
+                                        <span class="date">@item.AddedDate.ToString("MM/dd/yyyy")</span>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="widget tag-widget">
+                        <h3>Tags</h3>
+                        <ul>
+                            @foreach (var item in Model.Tags)
+                            {
+                                <li><a href="#">@item.Name</a></li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="widget ad-widget">
+                        <h3>Advertising Spot</h3>
+                        <div class="img-holder">
+                            <a href="#"><img src="~/images/blog/ad-img.jpg"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end container -->
+</section>
+<!-- end blog-single-section -->

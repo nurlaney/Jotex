@@ -1,0 +1,46 @@
+﻿@model AboutCompanyViewModel
+<!-- start about-section -->
+<section class="about-section section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col col-xs-12">
+                <div class="inner clearfix">
+                    <div class="left-col">
+                        <div class="section-title">
+                            <span>About us</span>
+                            <h2>@Model.LeftTitle</h2>
+                        </div>
+                        <div class="details">
+                            <p>@Model.LeftText</p>
+                        </div>
+                        <div class="fun-fact-area">
+                            <div class="fun-fact-grids clearfix">
+                                @foreach (var item in Model.FunFacts)
+                                {
+                                    <div class="grid">
+                                        <div class="info">
+                                            <i class="@item.Icon"></i>
+                                            <h3><span class="odometer" data-count="@item.Numbs">00</span></h3>
+                                            <p>@item.FFDescription</p>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-col">
+                        <div class="about-info">
+                            <h3>@Model.Title</h3>
+                            <p>@Model.Text</p>
+                            <a href="#" class="theme-btn">@Model.ActionText</a>
+                        </div>
+                        <div class="img-holder">
+                            <img src="~/images/@Model.Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end container -->
+</section>
+<!-- end about-section -->

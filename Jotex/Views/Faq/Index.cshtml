@@ -1,0 +1,39 @@
+﻿@model IEnumerable<FaqViewModel>
+@{
+    ViewData["Title"] = "FAQ";
+}
+    <partial name="Extract/_PageBanner" />
+<!-- start faq-pg-section -->
+<section class="faq-pg-section section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                <div class="section-title-s2">
+                    <span>FAQ</span>
+                    <h2>Ən çox verilən suallar</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col col-xs-12">
+                <div class="panel-group faq-accordion theme-accordion-s1" id="accordion">
+                    @foreach (var item in Model)
+                    {
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-@item.Id" aria-expanded="false" class="@(item.Id!=Model.First().ActiveService.Id?"collapsed":"")" >@item.Question</a>
+                            </div>
+                            <div id="collapse-@item.Id" class="panel-collapse @(item.Id==Model.First().ActiveService.Id?"collapse in":"collapse")">
+                                <div class="panel-body">
+                                    <p>@item.Answer</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div> <!-- end container -->
+</section>
+<!-- end faq-pg-section -->

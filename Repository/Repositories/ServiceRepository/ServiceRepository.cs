@@ -19,26 +19,14 @@ namespace Repository.Repositories.ServiceRepository
 
         public Service GetServiceById(int id)
         {
-            return _context.Services.Include("ServiceSpecs").Include("ServiceDetails").FirstOrDefault(s => s.Id == id);
-        }
-
-        public IEnumerable<ServiceDetail> GetServiceDetails()
-        {
-           return _context.ServiceDetails.Where(s => s.Status).ToList();
+            return _context.Services
+                                    .Include(s=>s.Blogs)
+                                    .Include("ServiceSpecs").FirstOrDefault(s => s.Id == id);
         }
 
         public IEnumerable<Service> GetServices()
         {
-            return _context.Services
-                           .Include("ServiceSpecs")
-                           .Include("ServiceDetails")
-                           .Where(s => s.Status)
-                           .ToList();
-        }
-
-        public IEnumerable<ServiceSpec> GetServiceSpecs()
-        {
-            return _context.ServiceSpecs.Where(s => s.Status).ToList();
+            return _context.Services.Include(s => s.ServiceSpecs).Where(s => s.Status).ToList();
         }
     }
 }

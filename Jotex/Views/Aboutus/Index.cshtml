@@ -1,24 +1,9 @@
-﻿
+﻿@model AboutCompanyViewModel
 
-<!-- start page-title -->
-<section class="page-title">
-    <div class="page-title-container">
-        <div class="page-title-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col col-xs-12">
-                        <h2>About us</h2>
-                        <ol class="breadcrumb">
-                            <li><a asp-controller="home" asp-action="index">Home</a></li>
-                            <li>About us</li>
-                        </ol>
-                    </div>
-                </div> <!-- end row -->
-            </div> <!-- end container -->
-        </div>
-    </div>
-</section>
-<!-- end page-title -->
+@{
+    ViewData["Title"] = "About Us";
+}
+<partial name="Extract/_PageBanner" />
 <!-- start about-section-s4 -->
 <section class="about-section-s4 section-padding">
     <div class="container">
@@ -26,17 +11,70 @@
             <div class="col col-md-3">
                 <div class="section-title mt">
                     <span>About us</span>
+                    <img src="~/images/logo-3.png">
                 </div>
             </div>
-
-            <vc:about-page></vc:about-page>
-
-            <vc:about-page-banner></vc:about-page-banner>
+            <div class="col col-md-5">
+                <div class="details-text mt">
+                    <h4>@Model.Title</h4>
+                    <p>@Model.Text</p>
+                </div>
+            </div>
+            <div class="col col-md-4">
+                <div class="features-grid clearfix">
+                    <div class="grid">
+                        <div class="icon">
+                            <i class="fi flaticon-money-bag"></i>
+                        </div>
+                        <h3>Make a Claim</h3>
+                        <p>You can claim you money</p>
+                    </div>
+                    <div class="grid">
+                        <div class="icon">
+                            <i class="fi flaticon-agent"></i>
+                        </div>
+                        <h3>Find an Agent</h3>
+                        <p>Want an agent?</p>
+                    </div>
+                    <div class="grid">
+                        <div class="icon">
+                            <i class="fi flaticon-cost"></i>
+                        </div>
+                        <h3>Pay Premium</h3>
+                        <p>Pay your premium now</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div> <!-- end container -->
 </section>
 <!-- end about-section-s4 -->
-<vc:about-page-encourage></vc:about-page-encourage>
+<!-- stat fun-fact-section -->
+<section class="fun-fact-section">
+    <div class="container">
+        <div class="row">
+            <div class="col col-xs-12">
+                <div class="fun-fact-area">
+                    <div class="fun-fact-grids clearfix">
+                        @foreach (var item in Model.Encourages)
+                        {
+                            <div class="grid">
+                                <div class="info">
+                                    <h3><span class="odometer" data-count="@item.Count">00</span>+</h3>
+                                    <p>@item.Title</p>
+                                    <p>@item.Description</p>
+                                    <a href="#" class="theme-btn-s3">@item.EncActionText</a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div> <!-- end container -->
+</section>
+<!-- end fun-fact-section -->
 <vc:agent></vc:agent>
 <vc:testimonial></vc:testimonial>
 <vc:brands></vc:brands>

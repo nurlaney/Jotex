@@ -18,13 +18,13 @@ namespace Jotex.Controllers
         public ServiceController(IServiceRepository serviceRepository,
                                  IMapper mapper)
         {
-            _serviceRepository = serviceRepository;
+            _serviceRepository = serviceRepository; 
             _mapper = mapper;
         }
         public IActionResult Index(int? id)
         {
             var services = _serviceRepository.GetServices();
-           
+            
             var model = new ServiceListViewModel
             {
                 Services = _mapper.Map<IEnumerable<Service>, IEnumerable<ServiceViewModel>>(services),
@@ -32,7 +32,7 @@ namespace Jotex.Controllers
 
             if (id == null)
             {
-                model.ActiveService = _mapper.Map<Service, ServiceViewModel>(services.First());
+                model.ActiveService = _mapper.Map<Service, ServiceViewModel>(services.First()); 
             }
             else
             {

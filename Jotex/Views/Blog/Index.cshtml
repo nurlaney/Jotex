@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BlogViewModel>
+@{
+    ViewData["Title"] = "Blog Posts";
+}
+
+<partial name="Extract/_PageBanner" />
+
+<!-- start blog-pg-section -->
+<section class="blog-pg-section blog-grid-4-columns section-padding">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col col-xs-12">
+                <div class="blog-content clearfix">
+                    @foreach (var item in Model)
+                    {
+                        <div class="post format-standard-image">
+                            <div class="entry-media">
+                                <img src="~/images/blog/@item.Image">
+                            </div>
+                            <ul class="entry-meta">
+                                <li><a href="#"><i class="fi flaticon-tag-1"></i>@item.Tag.Name</a></li>
+                            </ul>
+                            <h3><a asp-action="single" asp-route-id="@item.Id">@item.Title</a></h3>
+                            <p>@item.Text.Substring(0,125)...</p>
+                            <a asp-action="single" asp-route-id="@item.Id" class="theme-btn-s3">Davamını oxu</a>
+                        </div>
+
+                    }
+                    <div class="pagination-wrapper pagination-wrapper-center">
+                        <ul class="pg-pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <i class="fi flaticon-back"></i>
+                                </a>
+                            </li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <i class="fi flaticon-next"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end container -->
+</section>
+<!-- end blog-pg-section -->

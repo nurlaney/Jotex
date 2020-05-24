@@ -1,0 +1,31 @@
+﻿@model HomeViewModel
+
+<!-- start cta-s2-section -->
+<section class="cta-s2-section">
+    <div class="container">
+        <div class="row">
+            <div class="col col-xs-12">
+                <div class="content-area clearfix">
+                    <div class="left-col">
+                        <div class="details">
+                            <h2>@Model.NewTo.Title</h2>
+                            <p>@Model.NewTo.Text</p>
+                            <ul>
+                                <li><a asp-controller="service" asp-action="index">@Model.NewTo.Entry</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="right-col">
+                        <div class="text">
+                            <p>@Model.NewTo.ImageText</p>
+                        </div>
+                        <div class="img-holder">
+                            <img src="~/images/@Model.NewTo.Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end cta-s2-section -->

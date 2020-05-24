@@ -13426,9 +13426,9 @@ img {
     padding-left: 33.75pt;
 }
 
-[class~=cta-s3-section] {
+/*[class~=cta-s3-section] {
     background: url("../images/cta-s3-bg.jpg") center center/cover no-repeat local;
-}
+}*/
 
     [class~=cta-s3-section] [class~=cta-content] {
         padding-bottom: 5.3125pc;

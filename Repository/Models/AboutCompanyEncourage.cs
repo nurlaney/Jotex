@@ -12,12 +12,15 @@ namespace Repository.Models
         public string Count { get; set; }
         [Required]
         [MaxLength(100)]
-        public string Title { get; set; }
+        public string SubTitle { get; set; }
         [Required]
         [MaxLength(360)]
         public string Description { get; set; }
         [Required]
         [MaxLength(100)]
-        public string ActionText { get; set; }
+        public string EncActionText { get; set; }
+        public int AboutCompanyId { get; set; }
+
+        public AboutCompany AboutCompany { get; set; }
     }
 }
