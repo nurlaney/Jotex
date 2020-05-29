@@ -20,17 +20,9 @@ namespace Repository.Repositories.BlogsRepositories
         public Comment CreateComment(Comment comment)
         {
 
-            comment.Status = true;
-            comment.AddedBy = "system";
-            comment.ModifiedBy = "System";
-            comment.AddedDate = DateTime.Now;
-            comment.ModifiedDate = DateTime.Now;
-            comment.BlogId = 1;
             _context.Add(comment);
             _context.SaveChanges();
             return comment;
-
-
         }
 
         public Blog GetBlogById(int id)
@@ -44,11 +36,6 @@ namespace Repository.Repositories.BlogsRepositories
                                  .FirstOrDefault(b => b.Id == id);
         }
 
-        public int GetBlogCountByServiceId(int serviceId)
-        {
-            return _context.Blogs.Where(b => b.ServiceId == serviceId).Where(b => b.Status).Count();
-        }
-
         public IEnumerable<Blog> GetBlogs()
         {
             return _context.Blogs
@@ -57,16 +44,6 @@ namespace Repository.Repositories.BlogsRepositories
                                  .Where(b => b.Status)
                                  .OrderByDescending(b => b.AddedDate)
                                  .ToList();
-        }
-
-        public IEnumerable<Comment> GetComments()
-        {
-            return _context.Comments.Where(c => c.Status).ToList();
-        }
-
-        public IEnumerable<Blog> GetRecentBlogs(int take)
-        {
-            return _context.Blogs.Where(b => b.Status).ToList();
         }
 
         public IEnumerable<Tag> GetTags()

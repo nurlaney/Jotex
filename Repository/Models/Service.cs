@@ -19,16 +19,7 @@ namespace Repository.Models
         [Required]
         [MaxLength(550)]
         public string Text { get; set; }
-        [Required]
-        [MaxLength(300)]
-        public string Description { get; set; }
-        [Required]
-        [MaxLength(300)]
-        public string BottomDesc { get; set; }
-        [Required]
-        [MaxLength(550)]
-        public string BottomText { get; set; }
-        [Required]
+
         [MaxLength(100)]
         public string Image { get; set; }
 

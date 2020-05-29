@@ -1,0 +1,99 @@
+﻿@model IEnumerable<PlanViewModel>
+@{
+    ViewData["Title"] = "Planlar";
+}
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="mb-2" style="display:flex; justify-content:space-between;">
+        <div class="heading" style="display:inline-block">
+            <h1 class="h3 text-gray-800">Planlar</h1>
+        </div>
+        <div class="buttons" style="display:inline-block">
+            <a asp-action="labeltable" class="btn btn-outline-warning">Etiketlər</a>
+            <a asp-action="detailtable" class="btn btn-outline-info">Detallar</a>
+        </div>
+    </div>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Vəziyyəti</th>
+                            <th>Adı</th>
+                            <th>Logo</th>
+                            <th>Button text</th>
+                            <th>Etiket</th>
+                            <th class="text-center">
+                                <span>
+                                    <a asp-action="create" class="m-0 font-weight-bold btn btn-success">Yeni plan +</a>
+                                </span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Vəziyyəti</th>
+                            <th>Adı</th>
+                            <th>Logo</th>
+                            <th>Button text</th>
+                            <th>Etiket</th>
+                            <th class="text-center">
+                                <span>
+                                    <a asp-action="create" class="m-0 font-weight-bold btn btn-success">Yeni plan +</a>
+                                </span>
+                            </th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @if (item.Status)
+                                    {
+                                        <span class="badge badge-success">Aktiv</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-warning">Passiv</span>
+                                    }
+                                </td>
+                                <td>@item.Title</td>
+                                <td>@item.Icon</td>
+                                <td>@item.ActionText</td>
+                                @if (item.Label != null)
+                                {
+                                    <td>@item.Label.Text</td>
+                                }
+                                else
+                                {
+                                    <td class="text-info">Təyin edilməyib</td>
+                                }
+
+                                <td class="d-flex justify-content-center">
+
+                                    <a class="btn btn-info btn-circle btn-sm" asp-action="edit" asp-route-id="@item.Id">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </a>
+
+                                    <a class="btn btn-danger btn-circle btn-sm ml-2 deleteitem" asp-action="delete" asp-route-id="@item.Id">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+

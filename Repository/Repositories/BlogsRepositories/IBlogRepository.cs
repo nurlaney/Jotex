@@ -12,14 +12,10 @@ namespace Repository.Repositories.BlogsRepositories
 
         public Blog GetBlogById(int id);
 
-        public int GetBlogCountByServiceId(int serviceId);
-
-        public IEnumerable<Blog> GetRecentBlogs(int take);
+        public Comment CreateComment(Comment comment);
 
         public IEnumerable<Tag> GetTags();
 
-        public Comment CreateComment(Comment comment);
-
-        public IEnumerable<Comment> GetComments();
+      
     }
 }

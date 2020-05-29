@@ -34,5 +34,6 @@ namespace Repository.Data
         public DbSet<BlogWriter> BlogWriters { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<Admin> Admins { get; set; }
     }
 }

@@ -47,8 +47,6 @@ namespace Jotex.Mapping
             
             
             CreateMap<Blog, BlogViewModel>();
-            CreateMap<BlogWriter, BlogWriterViewModel>();
-            CreateMap<Tag, TagViewModel>();
 
             CreateMap<Comment, CommentViewModel>();
             CreateMap<CommentViewModel, Comment>();

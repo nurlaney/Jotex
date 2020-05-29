@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BlogViewModel>
+
+@{
+    var blog = 0;
+}
+<!-- start blog-section -->
+<section class="blog-section section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col col-xs-12">
+                <div class="content-area">
+                    <div class="left-col">
+                        <div class="section-title-s3">
+                            <span>Blogumuzdan</span>
+                            <h2>Blog Başlığı</h2>
+                            <p>With a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out</p>
+                        </div>
+                        @foreach (var item in Model)
+                        {
+                            blog++;
+                            <div class="blog-post-w-media post">
+                                <div class="entry-media">
+                                    <img src="~/images/blog/@item.Image">
+                                </div>
+                                <p class="cat"><i class="fi flaticon-tag-1"></i>@item.Tag.Name</p>
+                                <h3><a href="#">@item.Title.Substring(0,70).ToString()</a></h3>
+                                <p class="text">@item.Text.Substring(0,200).ToString()</p>
+                                <a href="#" class="theme-btn">Read more</a>
+                            </div>
+                            if (blog == 1)
+                            {
+                                break;
+                            }
+                        }
+
+                    </div>
+                    @foreach (var item in Model)
+                    {
+                        blog++;
+                        <div class="right-col">
+                            <div class="post">
+                                <p class="cat"><i class="fi flaticon-tag-1"></i>@item.Tag.Name</p>
+                                <h3><a href="#">@item.Title.Substring(0, 55).ToString() ...</a></h3>
+                                <p class="text">@item.Text.Substring(0, 150).ToString() ...</p>
+                                <a href="#" class="read-more">Read more</a>
+                            </div>
+                        </div>
+                        if (blog == 3)
+                        {
+                            break;
+                        }
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div> <!-- end container -->
+</section>
+<!-- end blog-section -->

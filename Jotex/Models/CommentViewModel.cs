@@ -18,5 +18,7 @@ namespace Jotex.Models
         [DataType(DataType.EmailAddress,ErrorMessage ="düzgün email adresi yazın")]
         public string UserEmail { get; set; }
         public DateTime AddedDate { get; set; }
+        public int BlogId { get; set; }
+        public BlogViewModel BlogViewModel { get; set; }
     }
 }

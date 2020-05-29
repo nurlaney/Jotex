@@ -37,47 +37,41 @@ namespace Jotex.Controllers
 
         public IActionResult Single(int id)
         {
+            ViewBag.services = _serviceRepository.GetServices();
+            ViewBag.posts = _blogRepository.GetBlogs();
+            ViewBag.tags = _blogRepository.GetTags();
             var blog = _blogRepository.GetBlogById(id);
-            var blogs = _blogRepository.GetBlogs();
-
-            var services = _serviceRepository.GetServices();
-
-            var service = _serviceRepository.GetServiceById(blog.ServiceId);
-
-            var tags = _blogRepository.GetTags();
-
-            var blogCount = _blogRepository.GetBlogCountByServiceId(service.Id);
-
-            var comment = _blogRepository.GetComments();
-
-            var model = new BlogViewModel
-            {
-                Services = _mapper.Map<IEnumerable<Service>, IEnumerable<ServiceViewModel>>(services),
-                Blogs = _mapper.Map<IEnumerable<Blog>, IEnumerable<BlogViewModel>>(blogs),
-                Tags = _mapper.Map<IEnumerable<Tag>, IEnumerable<TagViewModel>>(tags),
-                Blog = _mapper.Map<Blog,BlogViewModel>(blog),
-                Count = blogCount,
-                Service = _mapper.Map<Service,ServiceViewModel>(service),
-                Comments = _mapper.Map<IEnumerable<Comment>,IEnumerable<CommentViewModel>>(comment)
-            };
-            
+            var model = _mapper.Map<Blog, BlogViewModel>(blog);
 
             return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Comment(CommentViewModel comment)
+        public IActionResult Comment(BlogViewModel model)
         {
-
             if (ModelState.IsValid)
             {
-                var model = _mapper.Map<CommentViewModel, Comment>(comment);
-                _blogRepository.CreateComment(model);
-                return RedirectToAction("single", "blog");
+                Comment comment = new Comment
+                {
+                    AddedBy = "System",
+                    ModifiedBy = "System",
+                    Status = true,
+                    Text = model.LeaveComment.Text,
+                    UserName = model.LeaveComment.UserName,
+                    UserEmail = model.LeaveComment.UserEmail,
+                    AddedDate = DateTime.Now,
+                    ModifiedDate = DateTime.Now,
+                    BlogId=model.LeaveComment.BlogId
+                };
+                _blogRepository.CreateComment(comment);
+
+                return RedirectToAction("single",new {id = model.LeaveComment.BlogId });
             }
-            return View("~/Views/Blog/Single.cshtml",new BlogViewModel());
-           
+
+
+            return RedirectToAction("single", new { id = model.LeaveComment.BlogId });
+
         }
     }
 }

@@ -1,0 +1,71 @@
+﻿@model PlanViewModel
+@{
+    ViewData["Title"] = "Plan";
+}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Plan</h1>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Vəziyyəti</label>
+                    <div class="custom-control custom-radio custom-control-inline ml-3">
+                        <input type="radio" id="Status" value="true" name="Status" class="custom-control-input">
+                        <label class="custom-control-label" for="Status">Aktiv</label>
+                        <span class="field-validation-valid text-danger" asp-validation-for="Status"></span>
+
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="StatusFal" value="false" name="Status" class="custom-control-input">
+                        <label class="custom-control-label" for="StatusFal">Passiv</label>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label asp-for="LabelId">Etiket</label>
+                        <select asp-for="LabelId" class="form-control">
+                            <option value=" " selected >Seç</option>
+                            @foreach (var item in ViewBag.Labels)
+                            {
+                                <option value="@item.Id">@item.Text</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Title">Başlığı (adı)</label>
+                    <input class="form-control form-control-user slug-source" asp-for="Title">
+                    <span class="field-validation-valid text-danger" asp-validation-for="Title"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Icon">FlatIcondan icon adı</label>
+                    <input class="form-control form-control-user slug-source" asp-for="Icon">
+                    <span class="field-validation-valid text-danger" asp-validation-for="Icon"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ActionText">Button`un teksti</label>
+                    <input class="form-control form-control-user slug-source" asp-for="ActionText">
+                    <span class="field-validation-valid text-danger" asp-validation-for="ActionText"></span>
+                </div>
+
+                <div class="form-group d-flex justify-content-end mt-3">
+                    <button type="submit" class="btn btn-primary btn-icon-split">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                        <span class="text">Əlavə et</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+@section Scripts{
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}
