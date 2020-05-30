@@ -10,5 +10,16 @@ namespace Repository.Repositories.CaseStudyRepositories
         public IEnumerable<CaseStudy> GetCaseStudies();
         public CaseStudy GetCaseStudyById(int id);
         public IEnumerable<CaseStudy> GetCaseStudiesByServiceId(int serviceId, int take);
+        public IEnumerable<CaseStudy> GetAllCaseStudies();
+        public IEnumerable<Agent> GetAllAgents();
+        public CaseStudy CreateCaseStudy(CaseStudy model);
+        public CaseStudy GetAllCaseStudyById(int id);
+        public void UpdateCase(CaseStudy caseToUpdate, CaseStudy caseStudy);
+        public void DeleteCase(CaseStudy caseStudy);
+        public IEnumerable<CaseStudySpec> GetAllCaseStudySpecs();
+        public CaseStudySpec CreateCaseStudySpec(CaseStudySpec model);
+        public CaseStudySpec GetAllCaseStudySpecsById(int id);
+        public void UpdateCaseStudySpec(CaseStudySpec detailToUpdate, CaseStudySpec caseStudySpec);
+        public void DeleteCaseStudySpec(CaseStudySpec caseStudySpec);
     }
 }

@@ -1,0 +1,68 @@
+﻿@model CaseStudySpecViewModel
+@{
+    ViewData["Title"] = "Detal";
+}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Detal</h1>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Vəziyyəti</label>
+                    <div class="custom-control custom-radio custom-control-inline ml-3">
+                        <input type="radio" id="Status" value="true" name="Status" class="custom-control-input">
+                        <label class="custom-control-label" for="Status">Aktiv</label>
+                        <span class="field-validation-valid text-danger" asp-validation-for="Status"></span>
+
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="StatusFal" value="false" name="Status" class="custom-control-input">
+                        <label class="custom-control-label" for="StatusFal">Passiv</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CaseStudyId">Hadisə analizləri</label>
+                    <select asp-for="CaseStudyId" class="form-control">
+                        <option value="0" selected disabled>Seç</option>
+                        @foreach (var item in ViewBag.CaseStudy)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Key">Açar-söz</label>
+                    <input class="form-control form-control-user slug-source" asp-for="Key">
+                    <span class="field-validation-valid text-danger" asp-validation-for="Key"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Value">Qarşılıq</label>
+                    <input class="form-control form-control-user slug-source" asp-for="Value">
+                    <span class="field-validation-valid text-danger" asp-validation-for="Value"></span>
+                </div>
+                <div class="form-group d-flex justify-content-end mt-3">
+                    <button type="submit" class="btn btn-primary btn-icon-split">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                        <span class="text">Əlavə et</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+
+
+@section Scripts{
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}
+

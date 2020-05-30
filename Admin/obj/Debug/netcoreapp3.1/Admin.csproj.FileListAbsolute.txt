@@ -160,3 +160,9 @@ C:\Users\DostTech\source\repos\Jotex\Admin\obj\Debug\netcoreapp3.1\Razor\Views\P
 C:\Users\DostTech\source\repos\Jotex\Admin\obj\Debug\netcoreapp3.1\Razor\Views\Plan\DetailTable.cshtml.g.cs
 C:\Users\DostTech\source\repos\Jotex\Admin\obj\Debug\netcoreapp3.1\Razor\Views\Plan\CreateDetail.cshtml.g.cs
 C:\Users\DostTech\source\repos\Jotex\Admin\obj\Debug\netcoreapp3.1\Razor\Views\Plan\EditDetail.cshtml.g.cs
+C:\Users\DostTech\source\repos\Jotex\Admin\obj\Debug\netcoreapp3.1\Razor\Views\CaseStudy\Index.cshtml.g.cs
+C:\Users\DostTech\source\repos\Jotex\Admin\obj\Debug\netcoreapp3.1\Razor\Views\CaseStudy\Create.cshtml.g.cs
+C:\Users\DostTech\source\repos\Jotex\Admin\obj\Debug\netcoreapp3.1\Razor\Views\CaseStudy\Edit.cshtml.g.cs
+C:\Users\DostTech\source\repos\Jotex\Admin\obj\Debug\netcoreapp3.1\Razor\Views\CaseStudy\DetailTable.cshtml.g.cs
+C:\Users\DostTech\source\repos\Jotex\Admin\obj\Debug\netcoreapp3.1\Razor\Views\CaseStudy\CreateDetail.cshtml.g.cs
+C:\Users\DostTech\source\repos\Jotex\Admin\obj\Debug\netcoreapp3.1\Razor\Views\CaseStudy\EditDetail.cshtml.g.cs

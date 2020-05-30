@@ -66,7 +66,7 @@ namespace Admin.Controllers
             var model = _mapper.Map<ServiceSpec, ServiceSpecViewModel>(serviceSpec);
 
             return View(model);
-        }
+        } 
 
         [HttpPost]
         [ValidateAntiForgeryToken]

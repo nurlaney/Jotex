@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Repository.Data;
 using Repository.Repositories.AdminRepositories;
+using Repository.Repositories.CaseStudyRepositories;
 using Repository.Repositories.PlansRepositories;
 using Repository.Repositories.ServiceRepository;
 using Repository.Services;
@@ -42,6 +43,7 @@ namespace Admin
             services.AddTransient<IAdminRepository, AdminRepository>();
             services.AddTransient<IServiceRepository, ServiceRepository>();
             services.AddTransient<IPlanRepository, PlanRepository>();
+            services.AddTransient<ICaseStudyRepository, CaseStudyRepository>();
 
             services.AddTransient<ICloudinaryService, CloudinaryService>();
             services.AddTransient<IFileManager, FileManager>();

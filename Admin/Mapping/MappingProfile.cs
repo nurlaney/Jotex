@@ -1,4 +1,6 @@
-﻿using Admin.Models.Plan;
+﻿using Admin.Models;
+using Admin.Models.CaseStudy;
+using Admin.Models.Plan;
 using Admin.Models.Service;
 using AutoMapper;
 using Repository.Models;
@@ -25,6 +27,14 @@ namespace Admin.Mapping
             CreateMap<LabelViewModel, Label>();
             CreateMap<PlanDetail, PlanDetailViewModel>();
             CreateMap<PlanDetailViewModel, PlanDetail>();
+
+            CreateMap<Agent, AgentViewModel>();
+
+            CreateMap<CaseStudy, CaseStudyViewModel>();
+            CreateMap<CaseStudyViewModel, CaseStudy>();
+            CreateMap<CaseStudySpec, CaseStudySpecViewModel>();
+            CreateMap<CaseStudySpecViewModel, CaseStudySpec>();
+
         }
     }
 }

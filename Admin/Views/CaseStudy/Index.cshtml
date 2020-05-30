@@ -1,0 +1,143 @@
+﻿@model IEnumerable<CaseStudyViewModel>
+@{
+    ViewData["Title"] = "Hadisə analizləri";
+}
+
+    <div class="container-fluid">
+
+        <div class="mb-2" style="display:flex; justify-content:space-between;">
+            <div class="heading" style="display:inline-block">
+                <h1 class="h3 text-gray-800">Hadisə analizləri</h1>
+            </div>
+            <div class="buttons" style="display:inline-block">
+                <a asp-action="detailtable" class="btn btn-info">Detallar</a>
+            </div>
+        </div>
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Adı</th>
+                                <th>Vəziyyəti</th>
+                                <th>Başlıq</th>
+                                <th>Alt başlıq</th>
+                                <th>Mətn</th>
+                                <th>Problem</th>
+                                <th>Həlli</th>
+                                <th>Nəticə</th>
+                                <th>Servis</th>
+                                <th>Agent</th>
+                                <th class="text-center">
+                                    <span>
+                                        <a asp-action="create" class="m-0 font-weight-bold btn btn-success">Yeni servis +</a>
+                                    </span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Adı</th>
+                                <th>Vəziyyəti</th>
+                                <th>Başlıq</th>
+                                <th>Alt başlıq</th>
+                                <th>Mətn</th>
+                                <th>Problem</th>
+                                <th>Həlli</th>
+                                <th>Nəticə</th>
+                                <th>Servis</th>
+                                <th>Agent</th>
+                                <th class="text-center">
+                                    <span>
+                                        <a asp-action="create" class="m-0 font-weight-bold btn btn-success">Yeni servis +</a>
+                                    </span>
+                                </th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Name</td>
+
+                                    <td>
+                                        @if (item.Status)
+                                        {
+                                            <span class="badge badge-success">Aktiv</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge badge-warning">Passiv</span>
+                                        }
+                                    </td>
+
+                                    <td>@item.Title</td>
+
+                                    @if (item.Description.Length > 55)
+                                    {
+                                        <td>@item.Description.Substring(0, 54).ToString() ...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.Description</td>
+                                    }
+
+                                    @if (item.Text.Length > 55)
+                                    {
+                                        <td>@item.Text.Substring(0, 54).ToString() ...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.Text</td>
+                                    }
+                                    @if (item.Challenge.Length > 55)
+                                    {
+                                        <td>@item.Challenge.Substring(0, 54).ToString() ...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.Challenge</td>
+                                    }
+                                    @if (item.Solution.Length > 55)
+                                    {
+                                        <td>@item.Solution.Substring(0, 54).ToString() ...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.Solution</td>
+                                    }
+                                    @if (item.Results.Length > 55)
+                                    {
+                                        <td>@item.Results.Substring(0, 54).ToString() ...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.Results</td>
+                                    }
+                                    <td>@item.Service.Name</td>
+                                    <td>@item.Agent.Name</td>
+                                    <td class="d-flex justify-content-center">
+
+                                        <a class="btn btn-info btn-circle btn-sm" asp-action="edit" asp-route-id="@item.Id">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </a>
+
+                                        <a class="btn btn-danger btn-circle btn-sm ml-2 deleteitem" asp-action="delete" asp-route-id="@item.Id">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
