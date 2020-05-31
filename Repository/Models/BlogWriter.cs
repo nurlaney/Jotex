@@ -13,7 +13,6 @@ namespace Repository.Models
         [Required]
         [MaxLength(350)]
         public string Description { get; set; }
-        [Required]
         [MaxLength(60)]
         public string Image { get; set; }
 

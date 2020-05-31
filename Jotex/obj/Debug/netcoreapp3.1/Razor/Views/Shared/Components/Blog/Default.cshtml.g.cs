@@ -26,8 +26,15 @@ using Jotex.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\DostTech\source\repos\Jotex\Jotex\Views\_ViewImports.cshtml"
+using Repository.Services;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c5f7a20ba444c835cc3dc31e8a95db77d0a50daf", @"/Views/Shared/Components/Blog/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"10ad6b889c74b9509d13053ebde6c94694e5d326", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fd9e91776d8d115ce471fb969d7cad9cf67144dd", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_Blog_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<BlogViewModel>>
     {
         #line hidden
@@ -86,7 +93,7 @@ using Jotex.Models;
 #line hidden
 #nullable disable
             WriteLiteral("                            <div class=\"blog-post-w-media post\">\r\n                                <div class=\"entry-media\">\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "c5f7a20ba444c835cc3dc31e8a95db77d0a50daf4536", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "c5f7a20ba444c835cc3dc31e8a95db77d0a50daf4713", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

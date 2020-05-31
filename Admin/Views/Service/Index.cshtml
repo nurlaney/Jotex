@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<ServiceViewModel>
+@inject ICloudinaryService _cloudinaryService
 @{
     ViewData["Title"] = "Servislər";
 }
@@ -8,7 +9,7 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Servislər</h1>
-
+     
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-body">
@@ -71,7 +72,9 @@
                                 }
 
                                 <td>@item.Logo</td>
-                                <td>@item.Image</td>
+                                <td>
+                                    <img width="100" src="@_cloudinaryService.BuildUrl(item.Image)" />
+                                </td>
                                 <td class="d-flex justify-content-center">
 
                                     <a class="btn btn-info btn-circle btn-sm" asp-action="edit" asp-route-id="@item.Id">

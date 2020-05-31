@@ -13,7 +13,6 @@ namespace Repository.Models
         [Required]
         [MaxLength(6666)]
         public string Text { get; set; }
-        [Required]
         [MaxLength(60)]
         public string Image { get; set; }
         public int? TagId { get; set; }

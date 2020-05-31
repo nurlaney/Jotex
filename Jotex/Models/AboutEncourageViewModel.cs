@@ -8,8 +8,9 @@ namespace Jotex.Models
     public class AboutEncourageViewModel
     {
         public string Count { get; set; }
-        public string Title { get; set; }
+        public string SubTitle { get; set; }
         public string Description { get; set; }
         public string EncActionText { get; set; }
+        public bool Status { get; set; }
     }
 }

@@ -12,7 +12,7 @@ using Repository.Repositories.PlansRepositories;
 namespace Admin.Controllers
 {
     [TypeFilter(typeof(Auth))]
-    public class PlanController : Controller
+    public class PlanController : Controller 
     {
         private Repository.Models.Admin _admin => RouteData.Values["Admin"] as Repository.Models.Admin;
         private readonly IPlanRepository _planRepository;
@@ -26,7 +26,7 @@ namespace Admin.Controllers
         }
         public IActionResult Index()
         {
-
+             
             var plans = _planRepository.GetAllPlans();
 
             var model = _mapper.Map<IEnumerable<Plan>, IEnumerable<PlanViewModel>>(plans);

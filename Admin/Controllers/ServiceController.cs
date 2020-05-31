@@ -11,12 +11,12 @@ using Microsoft.AspNetCore.Mvc;
 using Repository.Data;
 using Repository.Models;
 using Repository.Repositories.ServiceRepository;
-using Repository.Services;
+using Repository.Services; 
 
 namespace Admin.Controllers
 {
     [TypeFilter(typeof(Auth))]
-    public class ServiceController : Controller
+    public class ServiceController : Controller 
     {
         private Repository.Models.Admin _admin => RouteData.Values["Admin"] as Repository.Models.Admin;
         private readonly IServiceRepository _serviceRepository;

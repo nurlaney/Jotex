@@ -30,7 +30,7 @@ namespace Admin.Controllers
             var model = _mapper.Map<IEnumerable<ServiceSpec>, IEnumerable<ServiceSpecViewModel>>(specs);
 
             return View(model);
-        }
+        } 
 
         public IActionResult Create()
         {

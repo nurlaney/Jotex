@@ -1,9 +1,10 @@
 ﻿@model ServiceListViewModel
+@inject ICloudinaryService _cloudinaryService
 @{
     ViewData["Title"] = "Service";
 }
 
-    <partial name="Extract/_PageBanner" />
+<partial name="Extract/_PageBanner" />
 <!-- start service-single-section -->
 <section class="service-single-section section-padding">
     <div class="container">
@@ -28,7 +29,7 @@
                             <div class="tab-pane @(item.Id==Model.ActiveService.Id?"fade active in":"")" id="@item.Id">
                                 <div class="content-area clearfix">
                                     <div class="grid info-grid">
-                                        <h3>@item.Title</h3> 
+                                        <h3>@item.Title</h3>
                                         <p>@item.Text</p>
                                         <table>
                                             <tbody>
@@ -43,7 +44,7 @@
                                         </table>
                                     </div>
                                     <div class="grid">
-                                        <img src="~/images/service-single/@item.Image">
+                                        <img src="@_cloudinaryService.BuildUrl(item.Image)">
                                     </div>
                                 </div>
                                 <div class="features-grid clearfix">

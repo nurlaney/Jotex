@@ -1,6 +1,7 @@
 ﻿@model HomeViewModel
+@inject ICloudinaryService _cloudinaryService
 <!-- start cta-s3-section -->
-<section class="cta-s3-section section-padding" style="background-image:url(images/@Model.ContactSection.Image);background-position:center;">
+<section class="cta-s3-section section-padding" style="background-image:url(@_cloudinaryService.BuildUrl(Model.ContactSection.Image));background-position:center;">
     <div class="container">
         <div class="row">
             <div class="col col-xs-12">

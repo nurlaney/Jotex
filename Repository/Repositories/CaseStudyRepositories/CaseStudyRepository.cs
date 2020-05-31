@@ -16,6 +16,15 @@ namespace Repository.Repositories.CaseStudyRepositories
             _context = context;
         }
 
+        public Agent CreateAgent(Agent agent)
+        {
+            agent.AddedDate = DateTime.Now;
+            _context.Add(agent);
+            _context.SaveChanges();
+
+            return agent;
+        }
+
         public CaseStudy CreateCaseStudy(CaseStudy model)
         {
             model.AddedDate = DateTime.Now;
@@ -34,6 +43,12 @@ namespace Repository.Repositories.CaseStudyRepositories
             return model;
         }
 
+        public void DeleteAgent(Agent agent)
+        {
+            _context.Remove(agent);
+            _context.SaveChanges();
+        }
+
         public void DeleteCase(CaseStudy caseStudy)
         {
             _context.Remove(caseStudy);
@@ -44,6 +59,13 @@ namespace Repository.Repositories.CaseStudyRepositories
         {
             _context.Remove(caseStudySpec);
             _context.SaveChanges();
+        }
+
+        public Agent GetAgentById(int? id)
+        {
+            return _context.Agents
+                                    .Include(s => s.CaseStudies)
+                                    .FirstOrDefault(s => s.Id == id);
         }
 
         public IEnumerable<Agent> GetAllAgents()
@@ -110,6 +132,27 @@ namespace Repository.Repositories.CaseStudyRepositories
                                        .Include(c=>c.Service)
                                        .Where(c => c.Status)
                                        .FirstOrDefault(c => c.Id == id);
+        }
+
+        public Agent RemovePhoto(int? id)
+        {
+            var agent = _context.Agents.FirstOrDefault(s => s.Id == id);
+
+            agent.Image = null;
+
+            _context.SaveChanges();
+
+            return agent;
+        }
+
+        public void UpdateAgent(Agent agentToUpdate, Agent agent)
+        {
+            agentToUpdate.ModifiedDate = DateTime.Now;
+            agentToUpdate.Name = agent.Name;
+            agentToUpdate.Status = agent.Status;
+            agentToUpdate.Position = agent.Position;
+
+            _context.SaveChanges();
         }
 
         public void UpdateCase(CaseStudy caseToUpdate, CaseStudy caseStudy)

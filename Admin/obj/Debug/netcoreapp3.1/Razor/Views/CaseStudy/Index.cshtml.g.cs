@@ -56,13 +56,41 @@ using Admin.Models.Plan;
 #nullable disable
 #nullable restore
 #line 7 "C:\Users\DostTech\source\repos\Jotex\Admin\Views\_ViewImports.cshtml"
+using Admin.Models.Home;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\Users\DostTech\source\repos\Jotex\Admin\Views\_ViewImports.cshtml"
+using Admin.Models.Blog;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "C:\Users\DostTech\source\repos\Jotex\Admin\Views\_ViewImports.cshtml"
+using Admin.Models.Pages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 10 "C:\Users\DostTech\source\repos\Jotex\Admin\Views\_ViewImports.cshtml"
+using Admin.Models.AboutUs;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 11 "C:\Users\DostTech\source\repos\Jotex\Admin\Views\_ViewImports.cshtml"
 using Repository.Services;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f016b7d15fb7e7412e8a8a251f3f24ac34721e76", @"/Views/CaseStudy/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"543a1c370ea37cab98dce1446f9256019584cad2", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e3fef2eff4132e9aca710ced78292cb9789719ed", @"/Views/_ViewImports.cshtml")]
     public class Views_CaseStudy_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<CaseStudyViewModel>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "detailtable", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -114,7 +142,7 @@ using Repository.Services;
             </div>
             <div class=""buttons"" style=""display:inline-block"">
                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f016b7d15fb7e7412e8a8a251f3f24ac34721e767216", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f016b7d15fb7e7412e8a8a251f3f24ac34721e767922", async() => {
                 WriteLiteral("Detallar");
             }
             );
@@ -154,7 +182,7 @@ using Repository.Services;
                                 <th class=""text-center"">
                                     <span>
                                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f016b7d15fb7e7412e8a8a251f3f24ac34721e769472", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f016b7d15fb7e7412e8a8a251f3f24ac34721e7610178", async() => {
                 WriteLiteral("Yeni servis +");
             }
             );
@@ -190,7 +218,7 @@ using Repository.Services;
                                 <th class=""text-center"">
                                     <span>
                                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f016b7d15fb7e7412e8a8a251f3f24ac34721e7611571", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f016b7d15fb7e7412e8a8a251f3f24ac34721e7612278", async() => {
                 WriteLiteral("Yeni servis +");
             }
             );
@@ -487,7 +515,7 @@ using Repository.Services;
 #line hidden
 #nullable disable
             WriteLiteral("</td>\r\n                                    <td class=\"d-flex justify-content-center\">\r\n\r\n                                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f016b7d15fb7e7412e8a8a251f3f24ac34721e7622912", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f016b7d15fb7e7412e8a8a251f3f24ac34721e7623619", async() => {
                 WriteLiteral("\r\n                                            <i class=\"fas fa-pencil-alt\"></i>\r\n                                        ");
             }
             );
@@ -519,7 +547,7 @@ using Repository.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n\r\n                                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f016b7d15fb7e7412e8a8a251f3f24ac34721e7625366", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f016b7d15fb7e7412e8a8a251f3f24ac34721e7626073", async() => {
                 WriteLiteral("\r\n                                            <i class=\"fas fa-trash\"></i>\r\n                                        ");
             }
             );

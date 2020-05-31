@@ -21,5 +21,10 @@ namespace Repository.Repositories.CaseStudyRepositories
         public CaseStudySpec GetAllCaseStudySpecsById(int id);
         public void UpdateCaseStudySpec(CaseStudySpec detailToUpdate, CaseStudySpec caseStudySpec);
         public void DeleteCaseStudySpec(CaseStudySpec caseStudySpec);
+        public Agent CreateAgent(Agent agent);
+        public Agent GetAgentById(int? id);
+        public Agent RemovePhoto(int? id);
+        public void UpdateAgent(Agent agentToUpdate, Agent agent);
+        public void DeleteAgent(Agent agent);
     }
 }

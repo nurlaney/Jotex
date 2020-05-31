@@ -33,14 +33,16 @@ namespace Jotex.Controllers
         public IActionResult Index()
         {
             var contactSectionItems = _sectionRepository.GetSectionItems();
-            var areaItems = _context.LikeableAreas.Where(a => a.Status).ToList();
+            var areaItems = _sectionRepository.GetLikeableAreas();
             var newToItems = _sectionRepository.GetNewTo();
+
             var model = new HomeViewModel
             {
-                LikeableArea = _mapper.Map<LikeableArea, LikeAbleViewModel>(areaItems.First()),
-                NewTo = _mapper.Map<NewTo, NewToViewModel>(newToItems.First()),
-                ContactSection = _mapper.Map<CoveredContact,ContactSectionViewModel>(contactSectionItems.First())
-                
+                ContactSection = _mapper.Map<CoveredContact, ContactSectionViewModel>(contactSectionItems.First()),
+
+                LikeableArea = _mapper.Map<LikeableArea,LikeAbleViewModel>(areaItems.First()),
+
+                NewTo = _mapper.Map<NewTo, NewToViewModel>(newToItems.First())
             };
             return View(model);
         }

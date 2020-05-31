@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<BrandViewModel>
-
+@inject ICloudinaryService _cloudinaryService
 
 <!-- start partners-section -->
 <section class="partners-section">
@@ -11,12 +11,12 @@
                     @foreach (var item in Model)
                     {
                         <div class="grid">
-                            <img src="~/images/partners/@item.Logo">
+                            <img src="@_cloudinaryService.BuildUrl(item.Logo)">
                         </div>
-                    }
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
-    </div> <!-- end container -->
-</section>
-<!-- end partners-section -->
+        </div> <!-- end container -->
+    </section>
+    <!-- end partners-section -->

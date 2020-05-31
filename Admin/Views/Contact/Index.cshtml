@@ -1,0 +1,90 @@
+﻿@model IEnumerable<ContactViewModel>
+@{
+    ViewData["Title"] = "Əlaqə";
+}
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="mb-2" style="display:flex; justify-content:space-between;">
+        <div class="heading" style="display:inline-block">
+            <h1 class="h3 text-gray-800">Əlaqə</h1>
+        </div>
+    </div>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Vəziyyəti</th>
+                            <th>Başlıq</th>
+                            <th>Alt-başlıq</th>
+                            <th>Form başlığı</th>
+                            <th>Form alt-başlığı</th>
+                            <th>Button teksdi</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Vəziyyəti</th>
+                            <th>Başlıq</th>
+                            <th>Alt-başlıq</th>
+                            <th>Form başlığı</th>
+                            <th>Form alt-başlığı</th>
+                            <th>Button teksdi</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @if (item.Status)
+                                    {
+                                        <span class="badge badge-success">Aktiv</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-warning">Passiv</span>
+                                    }
+                                </td>
+                                <td>@item.Title</td>
+                                @if (item.Description.Length > 55)
+                                {
+                                    <td>@item.Description.Substring(0, 54).ToString() ...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.Description</td>
+                                }
+                                <td>@item.FormTitle</td>
+                                @if (item.FormDescription.Length > 55)
+                                {
+                                    <td>@item.FormDescription.Substring(0, 54).ToString() ...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.FormDescription</td>
+                                }
+                                <td>@item.FormActionText</td>
+                                <td class="d-flex justify-content-center">
+
+                                    <a class="btn btn-info btn-circle btn-sm" asp-action="edit" asp-route-id="@item.Id">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </a>
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+

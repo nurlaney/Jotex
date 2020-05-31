@@ -17,6 +17,7 @@ using Repository.Repositories.CaseStudyRepositories;
 using Repository.Repositories.PlansRepositories;
 using Repository.Repositories.SectionRepositories;
 using Repository.Repositories.ServiceRepository;
+using Repository.Services;
 
 namespace Jotex
 {
@@ -46,6 +47,9 @@ namespace Jotex
             services.AddTransient<IPlanRepository, PlanRepository>();
             services.AddTransient<ICaseStudyRepository, CaseStudyRepository>();
             services.AddTransient<IBlogRepository, BlogRepository>();
+
+
+            services.AddTransient<ICloudinaryService, CloudinaryService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

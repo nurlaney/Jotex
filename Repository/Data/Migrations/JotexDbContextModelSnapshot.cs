@@ -39,7 +39,6 @@ namespace Repository.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("nvarchar(55)")
                         .HasMaxLength(55);
 
@@ -248,7 +247,6 @@ namespace Repository.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("nvarchar(75)")
                         .HasMaxLength(75);
 
@@ -295,7 +293,6 @@ namespace Repository.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("nvarchar(60)")
                         .HasMaxLength(60);
 
@@ -356,7 +353,6 @@ namespace Repository.Data.Migrations
                         .HasMaxLength(350);
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("nvarchar(60)")
                         .HasMaxLength(60);
 
@@ -395,7 +391,6 @@ namespace Repository.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Logo")
-                        .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
@@ -659,7 +654,6 @@ namespace Repository.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
@@ -781,7 +775,6 @@ namespace Repository.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
@@ -830,7 +823,6 @@ namespace Repository.Data.Migrations
                         .HasMaxLength(100);
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
@@ -1077,7 +1069,6 @@ namespace Repository.Data.Migrations
                         .HasMaxLength(50);
 
                     b.Property<string>("Logo")
-                        .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 

@@ -1,4 +1,5 @@
 ﻿@model BlogViewModel
+@inject ICloudinaryService _cloudinaryService
 @{
     ViewData["Title"] = "Blog Post";
 
@@ -15,7 +16,7 @@
                 <div class="blog-content">
                     <div class="post format-standard-image">
                         <div class="entry-media">
-                            <img src="~/images/blog/@Model.Image">
+                            <img src="@_cloudinaryService.BuildUrl(Model.Image)">
                         </div>
                         <ul class="entry-meta">
                             <li><a href="#"><i class="fi flaticon-user"></i> By: Admin</a></li>
@@ -37,7 +38,7 @@
 
                     <div class="author-box">
                         <div class="author-avatar">
-                            <a href="#" target="_blank"><img src="~/images/blog-details/@Model.BlogWriter.Image"></a>
+                            <a href="#" target="_blank"><img src="@_cloudinaryService.BuildUrl(Model.BlogWriter.Image)"></a>
                         </div>
                         <div class="author-content">
                             <a href="#" class="author-name">@Model.BlogWriter.Name</a>
@@ -111,8 +112,9 @@
                     <div class="widget about-widget">
                         <h3>Yazıçı</h3>
                         <div class="img-holder">
-                            <img src="~/images/blog/@Model.BlogWriter.Image">
+                            <img src="@_cloudinaryService.BuildUrl(Model.BlogWriter.Image)">
                         </div>
+                        <p>@Model.BlogWriter.Name</p>
                         <p>@Model.BlogWriter.Description</p>
                     </div>
                     <div class="widget search-widget">
@@ -128,17 +130,17 @@
                         <h3>Categories</h3>
                         <ul>
                             @foreach (var item in ViewBag.services)
-                                {
-                                    <li>
-                                        <a href="#">
-                                                @item.Name
+                            {
+                                <li>
+                                    <a href="#">
+                                        @item.Name
 
-                                            <span>
-                                                (+)
-                                            </span>
-                                        </a>
-                                    </li>
-                                }
+                                        <span>
+                                            (+)
+                                        </span>
+                                    </a>
+                                </li>
+                            }
                         </ul>
                     </div>
                     <div class="widget recent-post-widget">
@@ -147,15 +149,15 @@
                             @foreach (var item in ViewBag.posts)
                             {
                                 posts++;
-                                    <div class="post">
-                                        <div class="img-holder">
-                                            <img src="~/images/recent-posts/@item.Image">
-                                        </div>
-                                        <div class="details">
-                                            <h4><a href="#">@item.Title.Substring(0,70) ...</a></h4>
-                                            <span class="date">@item.AddedDate.ToString("MM/dd/yyyy")</span>
-                                        </div>
+                                <div class="post">
+                                    <div class="img-holder">
+                                        <img src="@_cloudinaryService.BuildUrl(item.Image)">
                                     </div>
+                                    <div class="details">
+                                        <h4><a href="#">@item.Title.Substring(0, 70) ...</a></h4>
+                                        <span class="date">@item.AddedDate.ToString("MM/dd/yyyy")</span>
+                                    </div>
+                                </div>
                                 if (posts == 3)
                                 {
                                     break;
@@ -167,9 +169,9 @@
                         <h3>Tags</h3>
                         <ul>
                             @foreach (var item in ViewBag.tags)
-            {
-                <li><a href="#">@item.Name</a></li>
-            }
+                            {
+                                <li><a href="#">@item.Name</a></li>
+                            }
                         </ul>
                     </div>
                     <div class="widget ad-widget">

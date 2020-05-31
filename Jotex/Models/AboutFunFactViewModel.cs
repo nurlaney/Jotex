@@ -11,5 +11,6 @@ namespace Jotex.Models
         public string Icon { get; set; }
         public string Numbs { get; set; }
         public string FFDescription { get; set; }
+        public bool   Status { get; set; }
     }
 }

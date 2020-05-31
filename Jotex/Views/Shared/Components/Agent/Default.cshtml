@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<AgentViewModel>
-
+@inject ICloudinaryService _cloudinaryService
 <!-- start agents-section -->
 <section class="agents-section p-b-0 section-padding">
     <div class="container">
@@ -16,7 +16,7 @@
                         {
                             <div class="grid">
                                 <div class="img-holder">
-                                    <img src="~/images/agents/@item.Image">
+                                    <img src="@_cloudinaryService.BuildUrl(item.Image)">
                                 </div>
                                 <div class="agent-info">
                                     <h4>@item.Name</h4>

@@ -1,0 +1,149 @@
+﻿@model BlogViewModel
+@inject ICloudinaryService _cloudinaryService
+@{
+    ViewData["Title"] = "Yeni blog";
+}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Yeni blog</h1>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Vəziyyəti</label>
+                    <div class="custom-control custom-radio custom-control-inline ml-3">
+                        <input type="radio" id="Status" value="true" name="Status" class="custom-control-input">
+                        <label class="custom-control-label" for="Status">Aktiv</label>
+                        <span class="field-validation-valid text-danger" asp-validation-for="Status"></span>
+
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="StatusFal" value="false" name="Status" class="custom-control-input">
+                        <label class="custom-control-label" for="StatusFal">Passiv</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ServiceId">Servis</label>
+                    <select asp-for="ServiceId" class="form-control">
+                        <option value="0" selected disabled>Seç</option>
+                        @foreach (var item in ViewBag.services)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TagId">Tag</label>
+                    <select asp-for="TagId" class="form-control">
+                        <option value="0" selected disabled>Seç</option>
+                        @foreach (var item in ViewBag.tags)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BlogWriterId">Yazar</label>
+                    <select asp-for="BlogWriterId" class="form-control">
+                        <option value="0" selected disabled>Seç</option>
+                        @foreach (var item in ViewBag.writers)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Title">Başlıq</label>
+                    <input class="form-control form-control-user slug-source" asp-for="Title">
+                    <span class="field-validation-valid text-danger" asp-validation-for="Title"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Text">Mətn</label>
+                    <textarea class="form-control form-control-user slug-source" asp-for="Text"></textarea>
+                    <span class="field-validation-valid text-danger" asp-validation-for="Text"></span>
+                </div>
+
+                <div class="form-group gallery">
+                    <label for="files" type="button" id="uploader" class="btn btn-warning">Şəkil yüklə</label>
+                    <input type="file" name="files" id="files" multiple="" class="d-none" accept="image/*">
+                    <div class="photos">
+                        <div class="item">
+                            <input type="hidden" asp-for="Image" />
+                            <img src="@_cloudinaryService.BuildUrl(Model.Image)" />
+                            <a href="#" data-name="@Model.Image" data-id="@Model.Id" class="remove"><i class="fa fa-trash"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group d-flex justify-content-end mt-3">
+                    <button type="submit" class="btn btn-primary btn-icon-split">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                        <span class="text">Əlavə et</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+
+
+@section Scripts{
+
+    <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+<script>
+    $(document).ready(function () {
+        if ($("input[name='files']").length) {
+            $("input[name='files']").change(function () {
+
+                for (var i = 0; i < this.files.length; i++) {
+                    var formData = new FormData();
+                    formData.append('file', this.files[i]);
+                    formData.append('id',@Model.Id);
+                    $.ajax({
+                        url: '/blog/upload',
+                        type: 'POST',
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        dataType: "json",
+                        success: function (response) {
+                            let index = $(".photos .item").length;
+                            $(".photos").append(`<div class="item">
+                                                <input type="hidden" value="${  response.filename}" name="Image" />
+                                                <img src="${ response.src}" />
+                                                <a href="#" data-name="${  response.filename}" class="remove"><i class="fa fa-trash"></i></a>
+                                            </div>`);
+                        }
+                    });
+                }
+            });
+            $(document).on("click", ".photos .remove", function (ev) {
+                ev.preventDefault();
+                let elem = $(this).parents(".item");
+                $.ajax({
+                    url: '/blog/remove',
+                    data: {
+                        name: $(this).data("name"),
+                        id: $(this).data("id")
+                    },
+                    type: "post",
+                    dataType: "json",
+                    success: function (response) {
+                        elem.remove();
+                    }
+                });
+            });
+        }
+
+    });
+</script>
+

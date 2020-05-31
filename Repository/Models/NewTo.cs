@@ -16,7 +16,7 @@ namespace Repository.Models
         [Required]
         [MaxLength(100)]
         public string Entry { get; set; }
-        [Required]
+
         [MaxLength(100)]
         public string Image { get; set; }
         [Required]

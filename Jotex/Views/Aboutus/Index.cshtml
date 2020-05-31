@@ -1,5 +1,5 @@
 ﻿@model AboutCompanyViewModel
-
+@inject ICloudinaryService _cloudinaryService
 @{
     ViewData["Title"] = "About Us";
 }
@@ -10,8 +10,7 @@
         <div class="row">
             <div class="col col-md-3">
                 <div class="section-title mt">
-                    <span>About us</span>
-                    <img src="~/images/logo-3.png">
+                    <span>Haqqımızda</span>
                 </div>
             </div>
             <div class="col col-md-5">
@@ -56,12 +55,12 @@
             <div class="col col-xs-12">
                 <div class="fun-fact-area">
                     <div class="fun-fact-grids clearfix">
-                        @foreach (var item in Model.Encourages)
+                        @foreach (var item in Model.Encourages.Where(e=>e.Status))
                         {
                             <div class="grid">
                                 <div class="info">
                                     <h3><span class="odometer" data-count="@item.Count">00</span>+</h3>
-                                    <p>@item.Title</p>
+                                    <p>@item.SubTitle</p>
                                     <p>@item.Description</p>
                                     <a href="#" class="theme-btn-s3">@item.EncActionText</a>
                                 </div>

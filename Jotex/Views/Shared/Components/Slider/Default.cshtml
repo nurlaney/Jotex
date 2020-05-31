@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<SliderItemViewModel>
+@inject ICloudinaryService _cloudinaryService
 <!-- start of hero -->
 <section class="hero-slider hero-style-1">
     <div class="bottom-links">
@@ -22,8 +23,9 @@
             @foreach (var item in Model)
             {
                 <div class="swiper-slide">
-                    <div class="slide-inner slide-bg-image" data-background="images/slider/@item.Image">
+                    <div class="slide-inner slide-bg-image" style="background-image: url('@_cloudinaryService.BuildUrl(item.Image)');">
                         <div class="container">
+                            
                             <div data-swiper-parallax="300" class="slide-title">
                                 <h2>@item.Title</h2>
                             </div>

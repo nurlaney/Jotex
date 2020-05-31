@@ -15,7 +15,7 @@ namespace Repository.Models
         public string Description { get; set; }
         [Required]
         [MaxLength(150)]
-        public string FormTitle { get; set; }
+        public string FormTitle { get; set; } 
         [Required]
         [MaxLength(250)]
         public string FormDescription { get; set; }

@@ -1,5 +1,5 @@
 ﻿@model HomeViewModel
-
+@inject ICloudinaryService _cloudinaryService
 <!-- start cta-s2-section -->
 <section class="cta-s2-section">
     <div class="container">
@@ -20,7 +20,7 @@
                             <p>@Model.NewTo.ImageText</p>
                         </div>
                         <div class="img-holder">
-                            <img src="~/images/@Model.NewTo.Image">
+                            <img src="@_cloudinaryService.BuildUrl(Model.NewTo.Image)">
                         </div>
                     </div>
                 </div>

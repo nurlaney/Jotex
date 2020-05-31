@@ -22,7 +22,6 @@ namespace Repository.Models
         [Required]
         [MaxLength(350)]
         public string LeftText { get; set; }
-        [Required]
         [MaxLength(55)]
         public string Image { get; set; }
 

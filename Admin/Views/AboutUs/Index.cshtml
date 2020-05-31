@@ -1,0 +1,103 @@
+﻿@model IEnumerable<AboutCompanyViewModel>
+@inject ICloudinaryService _cloudinaryService
+@{
+    ViewData["Title"] = "Haqqımızda";
+}
+
+
+    <div class="container-fluid">
+
+        <div class="mb-2" style="display:flex; justify-content:space-between;">
+            <div class="heading" style="display:inline-block">
+                <h1 class="h3 text-gray-800">Haqqımızda</h1>
+            </div>
+            <div class="buttons" style="display:inline-block">
+                <a asp-action="funtable" class="btn btn-outline-warning">Faktlar</a>
+                <a asp-action="enctable" class="btn btn-outline-info">Təşviq edicilər</a>
+            </div>
+        </div> 
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Vəziyyəti</th>
+                                <th>Başlıq</th>
+                                <th>Mətn</th>
+                                <th>Ana səhifə başlığı</th>
+                                <th>Ana səhifə mətni</th>
+                                <th>Şəkli</th>
+                                <th>Button teksdi</th>
+
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Vəziyyəti</th>
+                                <th>Başlıq</th>
+                                <th>Mətn</th>
+                                <th>Ana səhifə başlığı</th>
+                                <th>Ana səhifə mətni</th>
+                                <th>Şəkli</th>
+                                <th>Button teksdi</th>
+
+                            </tr>
+                        </tfoot>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @if (item.Status)
+                                        {
+                                            <span class="badge badge-success">Aktiv</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge badge-warning">Passiv</span>
+                                        }
+                                    </td>
+                                    <td>@item.Title</td>
+                                    @if (item.Text.Length > 55)
+                                    {
+                                        <td>@item.Text.Substring(0, 54).ToString() ...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.Text</td>
+                                    }
+
+                                    <td>@item.LeftTitle</td>
+                                    @if (item.LeftText.Length > 55)
+                                    {
+                                        <td>@item.LeftText.Substring(0, 54).ToString() ...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.LeftText</td>
+                                    }
+                                    <td>
+                                        <img width="100" src="@_cloudinaryService.BuildUrl(item.Image)" />
+                                    </td>
+                                    <td>@item.ActionText</td>
+                                    <td class="d-flex justify-content-center">
+
+                                        <a class="btn btn-info btn-circle btn-sm" asp-action="edit" asp-route-id="@item.Id">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </a>
+
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>

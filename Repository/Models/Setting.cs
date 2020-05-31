@@ -7,7 +7,7 @@ namespace Repository.Models
 {
   public  class Setting : BaseEntity
     {
-        [Required]
+
         [MaxLength(100)]
         public string Logo { get; set; }
         [Required]

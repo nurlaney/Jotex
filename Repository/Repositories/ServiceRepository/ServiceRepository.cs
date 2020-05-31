@@ -97,7 +97,6 @@ namespace Repository.Repositories.ServiceRepository
             serviceToUpdate.Title = service.Title;
             serviceToUpdate.Text = service.Text;
             serviceToUpdate.Logo = service.Logo;
-            serviceToUpdate.ModifiedBy = service.ModifiedBy;
             serviceToUpdate.ModifiedDate = DateTime.Now;
 
             _context.SaveChanges();

@@ -16,7 +16,7 @@ namespace Repository.Models
         [Required]
         [MaxLength(60)]
         public string ActionText { get; set; }
-        [Required]
+
         [MaxLength(100)]
         public string Image { get; set; }
     }

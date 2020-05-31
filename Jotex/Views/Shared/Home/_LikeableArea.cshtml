@@ -1,5 +1,5 @@
 ﻿@model HomeViewModel
-
+@inject ICloudinaryService _cloudinaryService
 <!-- start cta-section -->
 <section class="cta-section section-padding">
     <div class="container">
@@ -27,7 +27,7 @@
             <div class="col col-xs-12">
                 <div class="video-area">
                     <div class="img-holder">
-                        <img src="~/images/@Model.LikeableArea.Image">
+                        <img src="@_cloudinaryService.BuildUrl(Model.LikeableArea.Image)">
                         <div class="video-btns">
                             <a href="#" class="video-btn" data-type="iframe" tabindex="0"><i class="fi flaticon-play"></i></a>
                         </div>

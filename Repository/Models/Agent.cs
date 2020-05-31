@@ -13,7 +13,6 @@ namespace Repository.Models
         [Required]
         [MaxLength(45)]
         public string Position { get; set; }
-        [Required]
         [MaxLength(75)]
         public string Image { get; set; }
 
