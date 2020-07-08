@@ -1,2 +1,2 @@
 # Jotex
-Asp.Net Core App
+Asp.Net Core Insurance App
